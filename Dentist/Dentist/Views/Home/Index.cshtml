@@ -1,8 +1,214 @@
-﻿@{
+﻿@model HomeVM
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="home-slider owl-carousel">
+    <div class="slider-item" style="background-image:url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+                <div class="col-md-6 text ftco-animate">
+                    <h1 class="mb-4">Helping Your <span>Stay Happy One</span></h1>
+                    <h3 class="subheading">Everyday We Bring Hope and Smile to the Patient We Serve</h3>
+                    <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">View our works</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slider-item" style="background-image:url(images/bg_2.jpg);">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+                <div class="col-md-6 text ftco-animate">
+                    <h1 class="mb-4">Smile Makes <br>A Lasting Impression</h1>
+                    <h3 class="subheading">Your Health is Our Top Priority with Comprehensive, Affordable medical.</h3>
+                    <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">View our works</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section ftco-no-pt ftco-no-pb">
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-5 p-md-5 img img-2 mt-5 mt-md-0" style="background-image: url(../images/@Model.WellComing.Image);">
+            </div>
+            <div class="col-md-7 wrap-about py-4 py-md-5 ftco-animate">
+                <div class="heading-section mb-5">
+                    <div class="pl-md-5 ml-md-5 pt-md-5">
+                        <span class="subheading mb-2">Welcome to Dentista</span>
+                        <h2 class="mb-2" style="font-size: 32px;" @Model.WellComing.WelcomeTitle</h2>
+                    </div>
+                </div>
+                <div class="pl-md-5 ml-md-5 mb-5">
+                    <p>@Model.WellComing.Description</p>
+
+                    <div class="founder d-flex align-items-center mt-5">
+                        <div class="img" style="background-image: url(../images/@Model.Doctor.Image);"></div>
+                        <div class="text pl-3">
+                            <h3 class="mb-0">Dr. @Model.Doctor.FullName</h3>
+                            <span class="position">@Model.Doctor.Position</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section ftco-services">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-8 text-center heading-section ftco-animate">
+                <span class="subheading">Services</span>
+                <h2 class="mb-4">Our Clinic Services</h2>
+                <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (Treatment treatment in Model.Treatments)
+            {
+                <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
+                    <div class="media block-6 d-block text-center">
+                        <div class="icon d-flex justify-content-center align-items-center">
+                            <span class="flaticon-drilling"></span>
+                        </div>
+                        <div class="media-body p-2 mt-3">
+                            <h3 class="heading">@treatment.TreatmentName</h3>
+                            <p>@treatment.About</p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+<section class="ftco-section intro" style="background-image: url(../images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="mb-4">We promised to take care our patients and we delivered.</h3>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-8 text-center heading-section ftco-animate">
+                <span class="subheading">Doctors</span>
+                <h2 class="mb-4">Our Qualified Doctors</h2>
+                <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (Doctor doctor in Model.Doctors)
+            {
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="staff">
+                        <div class="img-wrap d-flex align-items-stretch">
+                            <div class="img align-self-stretch" style="background-image: url(../images/@doctor.Image);"></div>
+                        </div>
+                        <div class="text pt-3 text-center">
+                            <h3>DR.@doctor.FullName</h3>
+                            <span class="position mb-2"></span>
+                            <div class="faded">
+                                <p>@doctor.About</p>
+                                <ul class="ftco-social text-center">
+                                    <li class="ftco-animate"><a href="@doctor.Twitter" class="d-flex align-items-center justify-content-center"><span class="icon-twitter"></span></a></li>
+                                    <li class="ftco-animate"><a href="@doctor.Facebook" class="d-flex align-items-center justify-content-center"><span class="icon-facebook"></span></a></li>
+                                    <li class="ftco-animate"><a href="@doctor.Gmail" class="d-flex align-items-center justify-content-center"><span class="icon-google-plus"></span></a></li>
+                                    <li class="ftco-animate"><a href="@doctor.Instagram" class="d-flex align-items-center justify-content-center"><span class="icon-instagram"></span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</section>
+<section class="ftco-section testimony-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-8 text-center heading-section ftco-animate">
+                <span class="subheading">Testimonials</span>
+                <h2 class="mb-4">Our Patients Says About Us</h2>
+            </div>
+        </div>
+        <div class="row ftco-animate justify-content-center">
+            <div class="col-md-12">
+                <div class="carousel-testimony owl-carousel">
+                    @foreach (Patient patient in Model.Patient)
+                    {
+                        <div class="item">
+                            <div class="testimony-wrap d-flex">
+                                <div class="user-img" style="background-image: url(../images/@patient.Image)">
+                                </div>
+                                <div class="text pl-4 bg-light">
+                                    <span class="quote d-flex align-items-center justify-content-center">
+                                        <i class="icon-quote-left"></i>
+                                    </span>
+                                    <p>@patient.Description</p>
+                                    <p class="name">@patient.FullName</p>
+                                    <span class="position">@patient.Profession</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-8 text-center heading-section ftco-animate">
+                <span class="subheading">Blog</span>
+                <h2 class="mb-4">Recent Blog</h2>
+                <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (Blog blog in Model.Blogs)
+            {
+                <div class="col-md-4 ftco-animate">
+                    <div class="blog-entry">
+                        <a href="blog-single.html" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url('../images/@blog.Image');">
+                            <div class="meta-date text-center p-2">
+                                <span class="day">@blog.Date.Day</span>
+                                <span class="mos">@blog.Date.ToString("MMMM", new System.Globalization.CultureInfo("ru"))</span>
+                                <span class="yr">@blog.Date.Year</span>
+                            </div>
+                        </a>
+                        <div class="text bg-white p-4">
+                            <h3 class="heading"><a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">@blog.BlogName</a></h3>
+                            <p>
+                                @if (blog.Description.Length > 95)
+                                {
+                                    <span>@blog.Description.Substring(0, 95)</span> <span>...</span>
+                                }
+                                else
+                                {
+                                    @blog.Description;
+                                }
+                            </p>
+                            <div class="d-flex align-items-center mt-4">
+                                <p class="mb-0"><a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id"  class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                <p class="ml-auto mb-0">
+                                    <a href="#" class="mr-2">@blog.Author</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</section>

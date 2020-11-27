@@ -6,26 +6,30 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Dentist.Models;
+using Dentist.DAL;
+using Dentist.ViewModels;
 
 namespace Dentist.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly AppDbContext _db;
+        public HomeController(AppDbContext db)
         {
-            _logger = logger;
+            _db = db;
         }
-
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            HomeVM homeVM = new HomeVM
+            {
+                WellComing = _db.WellComings.FirstOrDefault(),
+                Doctor=_db.Doctors.Where(d=>d.Position== "Ceo,Founder").FirstOrDefault(),
+                Treatments=_db.Treatments.Take(8).ToList(),
+                Doctors=_db.Doctors.OrderBy(d=>d.Id).Take(4).ToList(),
+                Patient=_db.Patients.OrderByDescending(p=>p.Id).Take(6).ToList(),
+                Blogs=_db.Blogs.OrderByDescending(b=>b.Id).Take(3).ToList()
+            };
+            return View(homeVM);
         }
 
        

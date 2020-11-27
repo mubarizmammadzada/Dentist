@@ -150,7 +150,11 @@ C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\bin\Debug\netcoreapp3.1\ru
 C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Dentist.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Dentist.csprojAssemblyReference.cache
 C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Razor\Views\Doctor\Index.cshtml.g.cs
 C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Razor\Views\Treatment\Index.cshtml.g.cs
 C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Index.cshtml.g.cs
+C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Detail.cshtml.g.cs
+C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
+C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
+C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
+C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Dentist.csprojAssemblyReference.cache

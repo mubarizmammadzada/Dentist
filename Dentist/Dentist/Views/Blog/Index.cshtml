@@ -3,7 +3,7 @@
     ViewData["Title"] = "Index";
 }
 
-<section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+<section class="hero-wrap hero-wrap-2" style="background-image: url(../images/bg_1.jpg);" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -21,10 +21,10 @@
             {
                 <div class="col-md-4 ftco-animate">
                     <div class="blog-entry">
-                        <a href="blog-single.html" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url('../images/@blog.Image');">
+                        <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url(../images/@blog.Image);">
                             <div class="meta-date text-center p-2">
                                 <span class="day">@blog.Date.Day</span>
-                                <span class="mos">@blog.Date.ToString("MMMM",new System.Globalization.CultureInfo("ru"))</span>
+                                <span class="mos">@blog.Date.ToString("MMMM", new System.Globalization.CultureInfo("ru"))</span>
                                 <span class="yr">@blog.Date.Year</span>
                             </div>
                         </a>
@@ -56,11 +56,31 @@
             <div class="col text-center">
                 <div class="block-27">
                     <ul>
-                        <li class="active"><span>1</span></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
+                        @for (int i = 1; i <= ViewBag.PageCount; i++)
+                        {
+                            if (ViewBag.Page == null)
+                            {
+                                if (i == 1)
+                                {
+                                    <li class="active"><span><a class="disabled" href="/Blog/Index?page=@i">@i</a> </span></li>
+                                }
+                                else
+                                {
+                                    <li class="active"><span><a href="/Blog/Index?page=@i">@i</a></span></li>
+                                }
+                            }
+                            else
+                            {
+                                if (i == ViewBag.Page)
+                                {
+                                    <li class="active"><span><a class="disabled" href="/Blog/Index?page=@i">@i</a> </span></li>
+                                }
+                                else
+                                {
+                                    <li class="active"><span><a href="/Blog/Index?page=@i">@i</a> </span></li>
+                                }
+                            }
+                        }
                     </ul>
                 </div>
             </div>

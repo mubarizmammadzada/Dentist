@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Dentist.DAL;
 using Dentist.Models;
+using Dentist.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Dentist.Controllers
@@ -16,10 +17,34 @@ namespace Dentist.Controllers
         {
             _db = db;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
-            List<Blog> blogs = _db.Blogs.OrderByDescending(b => b.Id).ToList();
-            return View(blogs);
+            ViewBag.Page = page;
+            ViewBag.PageCount = Math.Ceiling((decimal)_db.Blogs.Count() / 6);
+            if (page == null)
+            {
+                List<Blog> blogs = _db.Blogs.OrderByDescending(b => b.Id).ToList();
+                return View(blogs);
+            }
+            else
+            {
+                List<Blog> blogs = _db.Blogs.Skip(((int)page-1)*6).OrderByDescending(b => b.Id).ToList();
+                return View(blogs);
+            }
+           
+        }
+        public IActionResult Detail(int? id)
+        {
+            if (id == null) return NotFound();
+            Blog blog = _db.Blogs.Find(id);
+            if (blog == null) return NotFound();
+            BlogVM blogVM = new BlogVM
+            {
+                Blog = blog,
+                Blogs=_db.Blogs.Take(3).OrderByDescending(b=>b.Id).ToList()
+            };
+            return View(blogVM);
+
         }
     }
 }

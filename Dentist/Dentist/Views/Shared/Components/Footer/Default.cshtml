@@ -1,0 +1,78 @@
+﻿@model BioVM
+@{
+    ViewData["Title"] = "Default";
+}
+
+<footer class="ftco-footer ftco-bg-dark ftco-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-5">
+                    <h2 class="ftco-heading-2 logo">CK DENT</h2>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </div>
+                <div class="ftco-footer-widget mb-5">
+                    <h2 class="ftco-heading-2">Have a Questions?</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li><span class="icon icon-map-marker"></span><span class="text">@Model.Bio.Address</span></li>
+                            <li><a href="~/#"><span class="icon icon-phone"></span><span class="text">@Model.Bio.PhoneNumber</span></a></li>
+                            <li><a href="~/#"><span class="icon icon-envelope"></span><span class="text"><span class="__cf_email__" data-cfemail="ee87808881ae97819b9c8a81838f8780c08d8183">@Model.Bio.Email</span></span></a></li>
+                        </ul>
+                    </div>
+                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+                        <li class="ftco-animate"><a href="@Model.Bio.Twitter" target="_blank"><span class="icon-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="@Model.Bio.Facebook" target="_blank"><span class="icon-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="@Model.Bio.Instagram"target="_blank" ><span class="icon-instagram"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-5 ml-md-4">
+                    <h2 class="ftco-heading-2">Links</h2>
+                    <ul class="list-unstyled">
+                        <li><a asp-controller="Home" asp-action="Index"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
+                        <li><a asp-controller="About" asp-action="Index"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
+                        <li><a asp-controller="Treatment" asp-action="Index"><span class="ion-ios-arrow-round-forward mr-2"></span>Services</a></li>
+                        <li><a  asp-controller="Blog" asp-action="Index"><span class="ion-ios-arrow-round-forward mr-2"></span>Blog</a></li>
+                        <li><a  asp-controller="Contact" asp-action="Index"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
+                    </ul>
+                </div>
+                
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-5">
+                    <h2 class="ftco-heading-2">Recent Blog</h2>
+                    @foreach (Blog blog in Model.Blogs)
+                    {
+                        <div class="block-21 mb-4 d-flex">
+                            <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id" class="blog-img mr-4" style="background-image: url(../images/@blog.Image);"></a>
+                            <div class="text">
+                                <h3 class="heading"><a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">Even the all-powerful Pointing has no control about</a></h3>
+                                <div class="meta">
+                                    <div><a href="~/#"><span class="icon-calendar"></span> @blog.Date</a></div>
+                                    <div><a href="~/#"><span class="icon-person"></span> @blog.Author</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <div class="col-md">
+                <div class="ftco-footer-widget mb-5">
+                    <h2 class="ftco-heading-2">Subscribe Us!</h2>
+                    <form action="#" class="subscribe-form">
+                        <div class="form-group">
+                            <input type="text" class="form-control mb-2 text-center" placeholder="Enter email address">
+                            <input type="submit" value="Subscribe" class="form-control submit px-3">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
