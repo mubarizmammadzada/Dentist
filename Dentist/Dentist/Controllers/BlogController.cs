@@ -33,13 +33,14 @@ namespace Dentist.Controllers
             }
            
         }
-        public IActionResult Detail(int? id)
+        [Route("blog/{slug}")]
+        public IActionResult Detail(string slug)
         {
-            if (id == null) return NotFound();
-            Blog blog = _db.Blogs.Find(id);
+            if (string.IsNullOrEmpty(slug)) return NotFound(); 
+            Blog blog = _db.Blogs.FirstOrDefault(b=>b.Slug==slug);
             if (blog == null) return NotFound();
             BlogVM blogVM = new BlogVM
-            {
+            { 
                 Blog = blog,
                 Blogs=_db.Blogs.Take(3).OrderByDescending(b=>b.Id).ToList()
             };

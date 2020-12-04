@@ -3,32 +3,23 @@
     ViewData["Title"] = "Home Page";
 }
 
-<section class="home-slider owl-carousel">
-    <div class="slider-item" style="background-image:url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
-                <div class="col-md-6 text ftco-animate">
-                    <h1 class="mb-4">Helping Your <span>Stay Happy One</span></h1>
-                    <h3 class="subheading">Everyday We Bring Hope and Smile to the Patient We Serve</h3>
-                    <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">View our works</a></p>
+    <section class="home-slider owl-carousel">
+        @foreach (Slider slider in Model.Sliders)
+        {
+            <div class="slider-item" style="background-image:url(../images/@slider.Image);" data-stellar-background-ratio="0.5">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+                        <div class="col-md-6 text ftco-animate">
+                            <h1 class="mb-4">@slider.SliderTitle</h1>
+                            <h3 class="subheading">@slider.SliderDescription</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="slider-item" style="background-image:url(images/bg_2.jpg);">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
-                <div class="col-md-6 text ftco-animate">
-                    <h1 class="mb-4">Smile Makes <br>A Lasting Impression</h1>
-                    <h3 class="subheading">Your Health is Our Top Priority with Comprehensive, Affordable medical.</h3>
-                    <p><a href="#" class="btn btn-secondary px-4 py-3 mt-3">View our works</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
+        }
+    </section>
 <section class="ftco-section ftco-no-pt ftco-no-pb">
     <div class="container">
         <div class="row no-gutters">
@@ -78,6 +69,34 @@
                             <p>@treatment.About</p>
                         </div>
                     </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</section>
+<section id="gallery" class="gallery section" style="margin-bottom:150px;padding:0px !important">
+    <div class="container-fluid">
+        <div class="section-header">
+            <h2 class="wow fadeInDown animated">Gallery</h2>
+            <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
+        </div>
+        <div class="row no-gutter">
+            @foreach (Portfolio portfolio in Model.Portfolios)
+            {
+                <div class="col-lg-3 col-md-6 col-sm-6 work">
+                    <a href="~/images/@portfolio.Image" class="work-box">
+                        <img src="~/images/@portfolio.Image" alt="">
+                        <div class="overlay">
+                            <div class="overlay-caption">
+                                <p>
+                                    <span style="font-family: 'elegant-theme-line';" class="icon icon-magnifying-glass">
+
+                                    </span>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             }
 
@@ -179,7 +198,7 @@
             {
                 <div class="col-md-4 ftco-animate">
                     <div class="blog-entry">
-                        <a href="blog-single.html" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url('../images/@blog.Image');">
+                        <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url('../images/@blog.Image');">
                             <div class="meta-date text-center p-2">
                                 <span class="day">@blog.Date.Day</span>
                                 <span class="mos">@blog.Date.ToString("MMMM", new System.Globalization.CultureInfo("ru"))</span>
@@ -199,7 +218,7 @@
                                 }
                             </p>
                             <div class="d-flex align-items-center mt-4">
-                                <p class="mb-0"><a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id"  class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                <p class="mb-0"><a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
                                 <p class="ml-auto mb-0">
                                     <a href="#" class="mr-2">@blog.Author</a>
                                 </p>
@@ -212,3 +231,13 @@
         </div>
     </div>
 </section>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.slider-banner').DrSlider({
+            'transition': 'fade',
+            showNavigation: false,
+            progressColor: "#03A9F4"
+        });
+    });
+</script> 

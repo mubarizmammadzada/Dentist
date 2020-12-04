@@ -14,6 +14,8 @@ namespace Dentist.ViewModels
         public List<Treatment> Treatments { get; set; }
         public List<Patient> Patient { get; set; }
         public List<Blog> Blogs { get; set; }
+        public List<Portfolio> Portfolios { get; set; }
+        public List<Slider> Sliders { get; set; }
 
     }
 }

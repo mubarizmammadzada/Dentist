@@ -1,12 +1,12 @@
- AOS.init({
+
+AOS.init({
  	duration: 800,
  	easing: 'slide'
  });
-
 (function($) {
 
 	"use strict";
-
+	
 	$(window).stellar({
     responsive: true,
     parallaxBackgrounds: true,
@@ -16,7 +16,7 @@
     scrollProperty: 'scroll'
   });
 
-
+	
 	var fullHeight = function() {
 
 		$('.js-fullheight').css('height', $(window).height());
@@ -26,7 +26,7 @@
 
 	};
 	fullHeight();
-
+	
 	// loader
 	var loader = function() {
 		setTimeout(function() { 

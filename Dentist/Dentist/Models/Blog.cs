@@ -19,5 +19,8 @@ namespace Dentist.Models
         public string Author { get; set; }
         [Required]
         public DateTime  Date { get; set; }
+        [Required]
+        public string Slug { get; set; }
+
     }
 }
