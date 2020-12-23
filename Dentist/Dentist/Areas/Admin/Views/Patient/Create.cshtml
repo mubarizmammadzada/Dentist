@@ -1,0 +1,35 @@
+﻿@model Patient
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Edit Slider</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="Photo" class="mt-3"></label>
+                    <input class="form-control " asp-for="Photo" accept="image/*">
+                    <span asp-validation-for="Photo" style="display:block" class="text-danger"> </span>
+                    <label asp-for="FullName" class="mt-3"></label>
+                    <input class="form-control " asp-for="FullName" accept="image/*">
+                    <span asp-validation-for="FullName" style="display:block" class="text-danger"> </span>
+                    <label asp-for="Description" class="mt-3"></label>
+                    <input class="form-control" asp-for="Description" accept="image/*">
+                    <span asp-validation-for="Description" style="display:block" class="text-danger"></span>
+                    <label asp-for="Profession" class="mt-3"></label>
+                    <input class="form-control" asp-for="Profession" accept="image/*">
+                    <span asp-validation-for="Profession" style="display:block" class="text-danger"></span>
+
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <a asp-action="Index" class="btn btn-dribbble">Go Back</a>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+}

@@ -33,11 +33,11 @@
                             <p>
                                 @if (blog.Description.Length > 95)
                                 {
-                                    <span>@blog.Description.Substring(0, 95)</span> <span>...</span>
+                                    <span>@Html.Raw(blog.Description.Substring(0, 95))</span> <span>...</span>
                                 }
                                 else
                                 {
-                                    @blog.Description;
+                                    @Html.Raw(blog.Description);
                                 }
                             </p>
                             <div class="d-flex align-items-center mt-4">

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    
 
     <style id="" media="all">
 
@@ -142,12 +142,19 @@
     <link rel="stylesheet" href="~/css/jquery.timepicker.css">
     <link rel="stylesheet" href="~/css/flaticon.css">
     <link rel="stylesheet" href="~/css/font-icon.css">
+
     <link rel="stylesheet" href="~/css/icomoon.css">
     <link rel="stylesheet" href="~/css/main.css">
     <link rel="stylesheet" href="~/css/style.css">
-
+    <style>
+        .cke_editable {
+            color: green !important;
+            background-color: red !important;
+        }
+    </style>
 
 </head>
+
 <body>
     @await Component.InvokeAsync("Header");
     @RenderBody()
@@ -184,9 +191,10 @@
     <script>
         $(function () {
             $('.work-box').fancybox();
-           
+
         })
     </script>
+    @RenderSection("Scripts", false);
 </body>
 
 </html>

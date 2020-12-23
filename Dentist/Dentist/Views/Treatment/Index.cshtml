@@ -20,11 +20,11 @@
             @foreach (Treatment treatment in Model)
             {
                 <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
-                    <div class="media block-6 d-block">
+                    <div class="media block-6 d-block w-100">
                         <div class="img w-100" style="background-image: url(../images/@treatment.Image);"></div>
                         <div class="media-body p-2 mt-3">
                             <h3 class="heading">@treatment.TreatmentName</h3>
-                            <p>@treatment.About</p>
+                            <p>@Html.Raw(treatment.About)</p>
                         </div>
                     </div>
                 </div>

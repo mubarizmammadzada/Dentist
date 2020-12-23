@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Slider>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Slider Table</h4>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <a asp-controller="Slider" asp-action="Create" class="btn btn-github mt-3">Create Slider</a>
+                        <thead>
+                            <tr>
+                                <th>
+                                    Image
+                                </th>
+                                <th>
+                                    Slider Title
+                                </th>
+                                <th>
+                                    Slider Description
+                                </th>
+                                <th>
+                                    Setting
+                                </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Slider slider in Model)
+                            {
+                                <tr>
+                                    <td class="py-1">
+                                        <img style="width:150px !important;height:90px !important ;border-radius:0;" src="../images/@slider.Image" alt="image" />
+                                    </td>
+                                    <td>
+                                        <span>@slider.SliderTitle</span>
+                                    </td>
+                                    <td>
+                                        @if (slider.SliderDescription.Length > 50)
+                                        {
+                                            <span>@slider.SliderDescription.Substring(0, 50)</span> <span>...</span>
+                                        }
+                                        else
+                                        {
+                                            @slider.SliderDescription;
+                                        }
+                                    </td>
+                                    <td>
+                                        <a asp-controller="Slider" asp-action="Detail" asp-route-id="@slider.Id" class="btn btn-success"><i class="mdi mdi-account-card-details">Detail</i></a>
+                                        <a asp-controller="Slider" asp-action="Edit" asp-route-id="@slider.Id" class="btn btn-primary "><i class="mdi mdi-table-edit">Edit</i></a>
+                                        <a asp-controller="Slider" asp-action="Delete" asp-route-id="@slider.Id" class="btn btn-danger"><i class="mdi mdi-delete-forever">Delete</i></a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

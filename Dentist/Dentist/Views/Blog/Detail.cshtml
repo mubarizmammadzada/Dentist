@@ -23,7 +23,7 @@
                 <p>
                     <img src="~/images/@Model.Blog.Image" alt="" class="img-fluid">
                 </p>
-                <p>@Model.Blog.Description</p>
+                <p>@Html.Raw(Model.Blog.Description)</p>
                 <div class="tag-widget post-tag-container mb-5 mt-5">
                 </div>
             </div>

@@ -1,0 +1,50 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Course</h4>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label asp-for="Photo" class="mt-2"></label>
+                            <input class="form-control" asp-for="Photo" accept="image/*">
+                            <span asp-validation-for="Photo" class="text-danger"></span>
+                            <label asp-for="BlogName" style="display:block" class="mt-2"></label>
+                            <input class="form-control" asp-for="BlogName" />
+                            <span asp-validation-for="BlogName" class="text-danger"></span>
+                            <label asp-for="Description" style="display:block" class="mt-2"></label>
+                            <textarea class="form-control" id="editor" asp-for="Description"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                            <label asp-for="Author" style="display:block" class="mt-2"></label>
+                            <input class="form-control" asp-for="Author" />
+                            <span asp-validation-for="Author" class="text-danger"></span>
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary ml-2 mb-3">Submit</button>
+                    <a asp-action="Index" class="btn btn-dribbble  mb-3">Go Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+
+    </script>
+}
+

@@ -1,0 +1,13 @@
+﻿@model Doctor
+@{
+    ViewData["Title"] = "Delete";
+}
+
+    <div>
+        <img style="width:200px !important;height:200px !important;margin-top:73px" src="~/images/@Model.Image" alt="Alternate Text" />
+        <form class="forms-sample mt-3"  method="post">
+            <button class="btn btn-danger">Delete Doctor</button>
+        </form>
+        <a asp-action="Index" class="btn btn-primary mt-3 ml-3">Go Back</a>
+    </div>
+

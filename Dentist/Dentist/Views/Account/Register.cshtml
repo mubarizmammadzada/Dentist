@@ -1,0 +1,44 @@
+﻿@model RegisterVM
+@{
+    ViewData["Title"] = "Register";
+}
+
+<main>
+    <section id="register">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 registerForm">
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <form method="post">
+                        <input asp-for="Username" class="form-control mb-4" placeholder="Email*">
+                        <span asp-validation-for="Username" class="text-danger"></span>
+                        <input asp-for="Email" class="form-control mb-4" placeholder="Email*">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <input asp-for="Password" class="form-control showPassword  mb-4" placeholder="Password*">
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                        <input asp-for="RepeatPassword" type="password" class="form-control showPassword  mb-4" placeholder="Repeat Password*">
+                        <span asp-validation-for="RepeatPassword" class="text-danger"></span>
+                        <div style="display:block">
+                            <input style="width:15px;" type="checkbox" id="remember" class=" mb-4" />
+                            <span>Show Password</span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">SignUp</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //CheckBox Show Password
+            $('#remember').click(function () {
+                $('.showPassword').attr('type', $(this).is(':checked') ? 'text' : 'password');
+            });
+        });
+    </script>
+}
