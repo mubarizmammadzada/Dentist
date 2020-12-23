@@ -3,23 +3,23 @@
     ViewData["Title"] = "Home Page";
 }
 
-    <section class="home-slider owl-carousel">
-        @foreach (Slider slider in Model.Sliders)
-        {
-            <div class="slider-item" style="background-image:url(../images/@slider.Image);" data-stellar-background-ratio="0.5">
-                <div class="overlay"></div>
-                <div class="container">
-                    <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
-                        <div class="col-md-6 text ftco-animate">
-                            <h1 class="mb-4">@slider.SliderTitle</h1>
-                            <h3 class="subheading">@slider.SliderDescription</h3>
-                        </div>
+<section class="home-slider owl-carousel">
+    @foreach (Slider slider in Model.Sliders)
+    {
+        <div class="slider-item" style="background-image:url(../images/@slider.Image);" data-stellar-background-ratio="0.5">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
+                    <div class="col-md-6 text ftco-animate">
+                        <h1 class="mb-4">@slider.SliderTitle</h1>
+                        <h3 class="subheading">@slider.SliderDescription</h3>
                     </div>
                 </div>
             </div>
+        </div>
 
-        }
-    </section>
+    }
+</section>
 <section class="ftco-section ftco-no-pt ftco-no-pb">
     <div class="container">
         <div class="row no-gutters">
@@ -81,25 +81,19 @@
             <h2 class="wow fadeInDown animated">Gallery</h2>
             <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
         </div>
-        <div class="row no-gutter">
-            @foreach (Portfolio portfolio in Model.Portfolios)
-            {
-                <div class="col-lg-3 col-md-6 col-sm-6 work">
-                    <a href="~/images/@portfolio.Image" class="work-box">
-                        <img src="~/images/@portfolio.Image" alt="">
-                        <div class="overlay">
-                            <div class="overlay-caption">
-                                <p>
-                                    <span style="font-family: 'elegant-theme-line';" class="icon icon-magnifying-glass">
-
-                                    </span>
-                                </p>
-                            </div>
+        <div class="row ftco-animate justify-content-center">
+            <div class="col-md-12">
+                <div class="carousel-testimony owl-carousel">
+                    @foreach (Portfolio portfolio in Model.Portfolios)
+                    {
+                        <div class="col-lg-12 col-md-6 col-sm-6 work" style="padding-left:0;padding-right:0;height:506px !important">
+                            <a href="~/images/@portfolio.Image" class="work-box">
+                                <img src="~/images/@portfolio.Image" alt="" style="height:506px !important">
+                            </a>
                         </div>
-                    </a>
+                    }
                 </div>
-            }
-
+            </div>
         </div>
     </div>
 </section>

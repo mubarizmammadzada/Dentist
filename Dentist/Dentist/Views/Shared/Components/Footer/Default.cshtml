@@ -46,12 +46,12 @@
                     @foreach (Blog blog in Model.Blogs)
                     {
                         <div class="block-21 mb-4 d-flex">
-                            <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id" class="blog-img mr-4" style="background-image: url(../images/@blog.Image);"></a>
+                            <a href="@Url.Action("Detail","Blog",new {slug=blog.Slug })" class="blog-img mr-4" style="background-image: url(../images/@blog.Image);"></a>
                             <div class="text">
-                                <h3 class="heading"><a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">Even the all-powerful Pointing has no control about</a></h3>
+                                <h3 class="heading"><a href="@Url.Action("Detail","Blog",new {slug=blog.Slug })">Even the all-powerful Pointing has no control about</a></h3>
                                 <div class="meta">
-                                    <div><a href="~/#"><span class="icon-calendar"></span> @blog.Date</a></div>
-                                    <div><a href="~/#"><span class="icon-person"></span> @blog.Author</a></div>
+                                    <div><span class="icon-calendar"></span> @blog.Date</div>
+                                    <div><span class="icon-person"></span> @blog.Author</div>
                                 </div>
                             </div>
                         </div>

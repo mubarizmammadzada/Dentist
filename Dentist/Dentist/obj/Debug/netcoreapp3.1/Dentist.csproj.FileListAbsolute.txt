@@ -212,3 +212,6 @@ C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Ra
 C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Create.cshtml.g.cs
 C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Edit.cshtml.g.cs
 C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Blog\Delete.cshtml.g.cs
+C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Portfolio\Index.cshtml.g.cs
+C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Portfolio\Create.cshtml.g.cs
+C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Portfolio\Delete.cshtml.g.cs
