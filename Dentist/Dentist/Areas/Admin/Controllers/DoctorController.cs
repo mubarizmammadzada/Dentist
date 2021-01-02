@@ -6,6 +6,7 @@ using Dentist.DAL;
 using Dentist.Extentions;
 using Dentist.Helper;
 using Dentist.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 

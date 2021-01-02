@@ -6,13 +6,15 @@ using Dentist.DAL;
 using Dentist.Extentions;
 using Dentist.Helper;
 using Dentist.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Slugify;
 
 namespace Dentist.Areas.Admin.Controllers
 {
-    [Area("admin")]
+    [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class BlogController : Controller
     {
        

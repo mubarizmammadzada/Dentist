@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Dentist.DAL;
 using Dentist.Models;
 using Dentist.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Dentist.Controllers
@@ -17,6 +18,7 @@ namespace Dentist.Controllers
         {
             _db = db;
         }
+     
         public IActionResult Index(int? page)
         {
             ViewBag.Page = page;
@@ -28,21 +30,21 @@ namespace Dentist.Controllers
             }
             else
             {
-                List<Blog> blogs = _db.Blogs.Skip(((int)page-1)*6).OrderByDescending(b => b.Id).ToList();
+                List<Blog> blogs = _db.Blogs.Skip(((int)page - 1) * 6).OrderByDescending(b => b.Id).ToList();
                 return View(blogs);
             }
-           
+
         }
         [Route("blog/{slug}")]
         public IActionResult Detail(string slug)
         {
-            if (string.IsNullOrEmpty(slug)) return NotFound(); 
-            Blog blog = _db.Blogs.FirstOrDefault(b=>b.Slug==slug);
+            if (string.IsNullOrEmpty(slug)) return NotFound();
+            Blog blog = _db.Blogs.FirstOrDefault(b => b.Slug == slug);
             if (blog == null) return NotFound();
             BlogVM blogVM = new BlogVM
-            { 
+            {
                 Blog = blog,
-                Blogs=_db.Blogs.Take(3).OrderByDescending(b=>b.Id).ToList()
+                Blogs = _db.Blogs.Take(3).OrderByDescending(b => b.Id).ToList()
             };
             return View(blogVM);
 

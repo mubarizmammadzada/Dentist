@@ -6,6 +6,7 @@ using Dentist.DAL;
 using Dentist.Extentions;
 using Dentist.Helper;
 using Dentist.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,6 +14,7 @@ namespace Dentist.Areas.Admin.Controllers
 {
 
     [Area("admin")]
+    [Authorize(Roles = "Admin")]
     public class SliderController : Controller
     {
         private readonly AppDbContext _db;

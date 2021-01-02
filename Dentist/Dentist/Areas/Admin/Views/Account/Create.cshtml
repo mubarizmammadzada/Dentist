@@ -1,0 +1,55 @@
+﻿@using Dentist.ViewModels
+@model RegisterVM
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Create Course</h4>
+                <div asp-validation-summary="ModelOnly"></div>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label asp-for="Email" class="mt-2"></label>
+                            <input class="form-control" asp-for="Email" accept="image/*">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                            <label asp-for="Username" style="display:block" class="mt-2"></label>
+                            <input class="form-control" asp-for="Username" />
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                            <label asp-for="Password" style="display:block" class="mt-2"></label>
+                            <input class="form-control showPassword" asp-for="Password" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                            <label asp-for="RepeatPassword" style="display:block" class="mt-2"></label>
+                            <input class="form-control showPassword" asp-for="RepeatPassword" />
+                            <span asp-validation-for="RepeatPassword" class="text-danger"></span>
+                            <div style="display:block">
+                                <input style="width:15px;" type="checkbox" id="remember" class=" mb-4" />
+                                <span>Show Password</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary ml-2 mb-3">Submit</button>
+                    <a asp-action="Index" class="btn btn-dribbble  mb-3">Go Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#remember').click(function () {
+                $('.showPassword').attr('type', $(this).is(':checked') ? 'text' : 'password');
+            });
+        });
+    </script>
+
+}
+

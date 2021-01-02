@@ -26,8 +26,15 @@ using Dentist.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\Areas\Admin\Views\_ViewImports.cshtml"
+using Dentist.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fc7ca505f99e039a906cd4bb46c4c4618e0c5d79", @"/Areas/Admin/Views/Doctor/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"371881a1db5a292f039068ec2c57afdfeafb1385", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e60ea17215aca86adc02eb239689eda81a060b1d", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Doctor_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Doctor>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Doctor", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -80,7 +87,7 @@ using Dentist.Models;
                 <div class=""table-responsive"">
                     <table class=""table table-striped"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc7ca505f99e039a906cd4bb46c4c4618e0c5d796898", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc7ca505f99e039a906cd4bb46c4c4618e0c5d797097", async() => {
                 WriteLiteral("Create Doctor");
             }
             );
@@ -127,7 +134,7 @@ using Dentist.Models;
 #line hidden
 #nullable disable
             WriteLiteral("                                <tr>\r\n                                    <td class=\"py-1\">\r\n                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "fc7ca505f99e039a906cd4bb46c4c4618e0c5d799460", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "fc7ca505f99e039a906cd4bb46c4c4618e0c5d799659", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -168,7 +175,7 @@ AddHtmlAttributeValue("", 1481, doctor.Image, 1481, 13, false);
 #line hidden
 #nullable disable
             WriteLiteral("</span>\r\n                                    </td>\r\n                                    <td>\r\n\r\n                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc7ca505f99e039a906cd4bb46c4c4618e0c5d7912086", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc7ca505f99e039a906cd4bb46c4c4618e0c5d7912285", async() => {
                 WriteLiteral("<i class=\"mdi mdi-table-edit\">Edit</i>");
             }
             );
@@ -202,7 +209,7 @@ AddHtmlAttributeValue("", 1481, doctor.Image, 1481, 13, false);
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc7ca505f99e039a906cd4bb46c4c4618e0c5d7914661", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fc7ca505f99e039a906cd4bb46c4c4618e0c5d7914860", async() => {
                 WriteLiteral("<i class=\"mdi mdi-delete-forever\">Delete</i>");
             }
             );

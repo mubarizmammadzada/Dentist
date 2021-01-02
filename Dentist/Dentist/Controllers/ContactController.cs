@@ -4,7 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Dentist.DAL;
 using Dentist.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualStudio.Services.DelegatedAuthorization;
 
 namespace Dentist.Controllers
 {
@@ -15,6 +17,7 @@ namespace Dentist.Controllers
         {
             _db = db;
         }
+        [Authorize(Roles ="Admin")]
         public IActionResult Index()
         {
             Bio bio = _db.Bios.FirstOrDefault();

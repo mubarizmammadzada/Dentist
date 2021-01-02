@@ -1,0 +1,59 @@
+﻿@model LoginVM
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Login</title>
+</head>
+<body>
+
+    <main>
+
+        <section id="login">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="login-form">
+                            <div asp-validation-summary="ModelOnly">
+
+                            </div>
+                            <form method="post" asp-controller="Account" asp-action="Login">
+                                <input asp-for="Email" class="form-control mb-4" placeholder="Email*">
+                                <span asp-validation-for="Email" class="text-danger mb-4"></span>
+                                <input asp-for="Password" class="form-control showPassword mb-4" placeholder="Password*">
+                                <span asp-validation-for="Password" class="text-danger mb-4"></span>
+                                <div style="display:block">
+                                    <input style="width:15px" type="checkbox" id="remember" />
+                                    <span>Show Password</span>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Login</button>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    @section Scripts{
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function () {
+            //CheckBox Show Password
+            $('#remember').click(function () {
+                $('.showPassword').attr('type', $(this).is(':checked') ? 'text' : 'password');
+            });
+        });
+        </script>
+    }
+</body>
+</html>

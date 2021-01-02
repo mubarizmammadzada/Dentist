@@ -14,7 +14,7 @@ namespace Dentist.ViewModels
         public string Email { get; set; }
         [Required, DataType(DataType.Password)]
         public string Password { get; set; }
-        [Required, Compare(nameof(Password)), DataType(DataType.EmailAddress)]
+        [Required, Compare(nameof(Password)), DataType(DataType.Password)]
         public string RepeatPassword { get; set; }
     }
 }

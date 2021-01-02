@@ -16,5 +16,9 @@ namespace Dentist.Helper
                 System.IO.File.Delete(filePath);
             }
         }
+        public enum UserRoles
+        {
+            Admin
+        }
     }
 }
