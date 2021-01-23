@@ -17,7 +17,6 @@ namespace Dentist.Controllers
         {
             _db = db;
         }
-        [Authorize(Roles ="Admin")]
         public IActionResult Index()
         {
             Bio bio = _db.Bios.FirstOrDefault();

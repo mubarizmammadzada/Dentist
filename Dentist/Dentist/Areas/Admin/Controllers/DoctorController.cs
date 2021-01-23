@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Dentist.Areas.Admin.Controllers
 {
     [Area("admin")]
+    [Authorize(Roles ="Admin")]
     public class DoctorController : Controller
     {
         private readonly AppDbContext _db;

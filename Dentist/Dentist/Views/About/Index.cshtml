@@ -7,8 +7,8 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <h1 class="mb-2 bread">About Us</h1>
-                <p class="breadcrumbs"><span class="mr-2"><a asp-controller="Home" asp-action="Index">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About us <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-2 bread">О Hас</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a asp-controller="Home" asp-action="Index">Главная <i class="ion-ios-arrow-forward"></i></a></span> <span>О нас <i class="ion-ios-arrow-forward"></i></span></p>
             </div>
         </div>
     </div>
@@ -21,12 +21,14 @@
             <div class="col-md-7 wrap-about py-4 py-md-5 ftco-animate">
                 <div class="heading-section mb-5">
                     <div class="pl-md-5 ml-md-5 pt-md-5">
-                        <span class="subheading mb-2">Welcome to Dentista</span>
+                        <span class="subheading mb-2">
+                            Добро пожаловать в CKДEНT
+                        </span>
                         <h2 class="mb-2" style="font-size: 32px;">@Model.WellComing.WelcomeTitle</h2>
                     </div>
                 </div>
                 <div class="pl-md-5 ml-md-5 mb-5">
-                    <p>@Model.WellComing.Description</p>
+                    <p>@Html.Raw(Model.WellComing.Description)</p>
                     <div class="founder d-flex align-items-center mt-5">
                         <div class="img" style="background-image: url(../images/@Model.Doctor.Image);"></div>
                         <div class="text pl-3">
@@ -43,8 +45,10 @@
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
             <div class="col-md-8 text-center heading-section ftco-animate">
-                <span class="subheading">Testimonials</span>
-                <h2 class="mb-4">Our Patients Says About Us</h2>
+                <span class="subheading">Отзывы</span>
+                <h2 class="mb-4">
+                    Наши пациенты говорят о нас
+                </h2>
             </div>
         </div>
         <div class="row ftco-animate justify-content-center">

@@ -42,86 +42,67 @@
                     <span class="nav-link">Navigation</span>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" asp-controller="Slider" asp-action="Index" asp-area="Admin">
+                    <a class="nav-link" asp-controller="Account" asp-action="Index" asp-area="Admin">
                         <span class="menu-icon">
                             <i class="mdi mdi-speedometer"></i>
                         </span>
-                        <span class="menu-title">Sales</span>
+                        <span class="menu-title">Account</span>
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" asp-controller="Patient" asp-action="Index" asp-area="Admin">
+                    <a class="nav-link" asp-controller="Bio" asp-action="Index" asp-area="Admin">
                         <span class="menu-icon">
                             <i class="mdi mdi-speedometer"></i>
                         </span>
-                        <span class="menu-title">Patient</span>
-                    </a>
-                </li>
-                <li class="nav-item menu-items">
-                    <a class="nav-link" asp-controller="Wellcoming" asp-action="Index" asp-area="Admin">
-                        <span class="menu-icon">
-                            <i class="mdi mdi-playlist-play"></i>
-                        </span>
-                        <span class="menu-title">Wellcoming</span>
+                        <span class="menu-title">Bio</span>
                     </a>
                 </li>
                 <li class="nav-item menu-items">
                     <a class="nav-link" asp-controller="Blog" asp-action="Index" asp-area="Admin">
                         <span class="menu-icon">
-                            <i class="mdi mdi-table-large"></i>
+                            <i class="mdi mdi-playlist-play"></i>
                         </span>
                         <span class="menu-title">Blog</span>
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" asp-controller="Treatment" asp-action="Index" asp-area="Admin">
+                    <a class="nav-link" asp-controller="Doctor" asp-action="Index" asp-area="Admin">
                         <span class="menu-icon">
                             <i class="mdi mdi-table-large"></i>
                         </span>
-                        <span class="menu-title">Treatments</span>
+                        <span class="menu-title">Doctor</span>
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" asp-controller="BlogCategory" asp-action="Index" asp-area="Admin">
+                    <a class="nav-link" asp-controller="Patient" asp-action="Index" asp-area="Admin">
                         <span class="menu-icon">
-                            <i class="mdi mdi-contacts"></i>
+                            <i class="mdi mdi-table-large"></i>
                         </span>
-                        <span class="menu-title">Blog Category</span>
+                        <span class="menu-title">Patient</span>
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" asp-controller="ProductCrud" asp-action="Index" asp-area="Admin">
+                    <a class="nav-link" asp-controller="Portfolio" asp-action="Index" asp-area="Admin">
                         <span class="menu-icon">
                             <i class="mdi mdi-contacts"></i>
                         </span>
-                        <span class="menu-title">Products</span>
+                        <span class="menu-title">Portfolio</span>
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" asp-controller="ProductImage" asp-action="Index" asp-area="Admin">
+                    <a class="nav-link" asp-controller="Slider" asp-action="Index" asp-area="Admin">
                         <span class="menu-icon">
                             <i class="mdi mdi-contacts"></i>
                         </span>
-                        <span class="menu-title">Product Images</span>
+                        <span class="menu-title">Treatment</span>
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" asp-controller="ProductCategory" asp-action="Index" asp-area="Admin">
+                    <a class="nav-link" asp-controller="WellComing" asp-action="Index" asp-area="Admin">
                         <span class="menu-icon">
                             <i class="mdi mdi-contacts"></i>
                         </span>
-                        <span class="menu-title">Product Category</span>
-                    </a>
-                </li>
-                <li class="nav-item menu-items">
-                    <a class="nav-link" asp-controller="Messages" asp-action="Index" asp-area="Admin">
-                        <span class="menu-icon">
-                            <i class="mdi mdi-contacts"></i>
-
-                        </span>
-                        <span class="menu-title">Messages</span>
-                        <span class="ml-5"> @ViewBag.MessagesCount</span>
-
+                        <span class="menu-title">Wellcoming</span>
                     </a>
                 </li>
             </ul>
@@ -143,10 +124,11 @@
                             data-toggle="offcanvas">
                         <span class="mdi mdi-format-line-spacing"></span>
                     </button>
-                    <a  asp-controller="Account" asp-action="LogOut" style="height:50%  !important" class="btn btn-primary mt-3">Log Out</a>
+                   
                 </div>
             </nav>
             <div class="main-panel">
+                
                 @RenderBody()
             </div>
         </div>

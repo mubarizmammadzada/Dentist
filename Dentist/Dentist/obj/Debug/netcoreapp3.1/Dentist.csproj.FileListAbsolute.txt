@@ -230,3 +230,5 @@ C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\bin\Debug\netcoreapp3.1\ru
 C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Data.SqlClient.dll
 C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Dentist.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Account\Login.cshtml.g.cs
+C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Bio\Index.cshtml.g.cs
+C:\Users\Admin\Desktop\DentistBackend\Dentist\Dentist\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Bio\Edit.cshtml.g.cs

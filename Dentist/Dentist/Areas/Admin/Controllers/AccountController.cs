@@ -30,7 +30,7 @@ namespace Dentist.Areas.Admin.Controllers
             List<AppUser> users =  _userManager.Users.ToList();
             return View(users);
         }
-        
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -54,16 +54,16 @@ namespace Dentist.Areas.Admin.Controllers
                 }
                 return View(registerVM);
             }
+            
             await _userManager.AddToRoleAsync(newUser, Helpers.UserRoles.Admin.ToString());
             await _signInManager.SignInAsync(newUser, true);
             return RedirectToAction("Index", "Home");
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
-            return Redirect("/home/index");
+            return Redirect("/home");
         }
         public IActionResult Login()
         {
@@ -87,7 +87,7 @@ namespace Dentist.Areas.Admin.Controllers
                 ModelState.AddModelError("", "Qeydiyyatdan kech");
                 return View(login);
             }
-            return RedirectToAction("Index", "Blog", new { area = "admin" });
+            return RedirectToAction("Index", "Account", new { area = "admin" });
 
 
         }

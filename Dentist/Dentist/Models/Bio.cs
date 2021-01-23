@@ -15,10 +15,10 @@ namespace Dentist.Models
         public string Address { get; set; }
         [Required]
         public string Email { get; set; }
+        [Required]
         public TimeSpan WeekDaysOpenHour { get; set; }
+        [Required]
         public TimeSpan WeekdayCloseHour { get; set; }
-        public TimeSpan SundayOpenHour { get; set; }
-        public TimeSpan SundayCloseHour { get; set; }
         public string Twitter { get; set; }
         public string Facebook { get; set; }
         public string Instagram { get; set; }

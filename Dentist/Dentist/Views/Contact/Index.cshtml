@@ -2,21 +2,27 @@
 @{
     ViewData["Title"] = "Index";
 }
-
+<style>
+    #map {
+        height: 400px;
+        width: 100%;
+    }
+</style>
 <section class="hero-wrap hero-wrap-2" style="background-image: url('../images/bg_1.jpg');"
          data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <h1 class="mb-2 bread">Contact Us</h1>
+                <h1 class="mb-2 bread">Связаться с Hами</h1>
                 <p class="breadcrumbs">
                     <span class="mr-2">
                         <a asp-controller="Home" asp-action="Index">
-                            Home <i class="ion-ios-arrow-forward"></i>
+                            Главная <i class="ion-ios-arrow-forward"></i>
                         </a>
                     </span> <span>
-                        Contact <i class="ion-ios-arrow-forward"></i>
+
+                        Kонтакт <i class="ion-ios-arrow-forward"></i>
                     </span>
                 </p>
             </div>
@@ -29,38 +35,43 @@
             <div class="col-md-6 p-4 p-md-5 order-md-last bg-light">
                 <form action="#">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Name">
+                        <input type="text" class="form-control" placeholder="Ваше Имя">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Email">
+                        <input type="text" class="form-control" placeholder="Ваш адрес электронной почты">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Subject">
+                        <input type="text" class="form-control" placeholder="Тема">
                     </div>
                     <div class="form-group">
-                        <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+                        <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Сообщение"></textarea>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+                        <input type="submit" value="Отправить Cообщение" class="btn btn-primary py-3 px-5">
                     </div>
                 </form>
             </div>
-            <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=%D0%A3%D0%BB.%20%D0%93%D0%B2%D0%B0%D1%80%D0%B4%D0%B5%D0%B9%D1%86%D0%B5%D0%B2%20%D0%A8%D0%B8%D1%80%D0%BE%D0%BD%D0%B8%D1%86%D0%B5%D0%B2%2084%20(2%20%D0%B9%20%D1%8D%D1%82%D0%B0%D0%B6)&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://yts-mx.net">slow</a></div>
-            <style>
-                .mapouter {
-                    position: relative;
-                    text-align: right;
-                    height: 500px;
-                    width: 600px;
-                }
+            <div class="mapouter">
+                <div class="gmap_canvas">
+                    <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Hvardiitsiv-Shyronintsiv%20St,%20%D0%B1%D1%83%D0%B4.84,%20Kharkiv,%20Kharkiv%20Oblast,%20Ukrayna,%2061000&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://fmovies2.org">fmovies</a>
+                    <style>
+                        .mapouter {
+                            position: relative;
+                            text-align: right;
+                            height: 500px;
+                            width: 600px;
+                        }
 
-                .gmap_canvas {
-                    overflow: hidden;
-                    background: none !important;
-                    height: 500px;
-                    width: 600px;
-                }
-            </style></div>
+                        .gmap_canvas {
+                            overflow: hidden;
+                            background: none !important;
+                            height: 500px;
+                            width: 600px;
+                        }
+                    </style><a href="https://maps-google.github.io/embed-google-map/"></a>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
@@ -68,23 +79,23 @@
     <div class="container">
         <div class="row d-flex mb-5 contact-info">
             <div class="col-md-12 mb-4">
-                <h2 class="h4">Contact Information</h2>
+                <h2 class="h4">Контакты</h2>
             </div>
             <div class="w-100"></div>
             <div class="col-md-4 d-flex">
                 <div class="bg-light d-flex align-self-stretch box p-4">
-                    <p><span>Address:</span> @Model.Address</p>
+                    <p><span>Адрес:</span> @Model.Address</p>
                 </div>
             </div>
             <div class="col-md-4 d-flex">
                 <div class="bg-light d-flex align-self-stretch box p-4">
-                    <p><span>Phone:</span> <a href="tel://@Model.PhoneNumber">@Model.PhoneNumber</a></p>
+                    <p><span>Телефон:</span> <a href="tel://@Model.PhoneNumber">@Model.PhoneNumber</a></p>
                 </div>
             </div>
             <div class="col-md-4 d-flex">
                 <div class="bg-light d-flex align-self-stretch box p-4">
                     <p>
-                        <span>Email:@Model.Email</span> <a href="@Model.Email">
+                        <span>Эл. адрес:@Model.Email</span> <a href="@Model.Email">
                         </a>
                     </p>
                 </div>
@@ -92,4 +103,8 @@
         </div>
     </div>
 </section>
+@section Scripts{
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+
+}
 

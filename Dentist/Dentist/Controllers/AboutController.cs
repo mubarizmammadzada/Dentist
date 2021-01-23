@@ -21,7 +21,7 @@ namespace Dentist.Controllers
             {
                 Patients = _db.Patients.Take(6).OrderByDescending(p => p.Id).ToList(),
                 WellComing = _db.WellComings.FirstOrDefault(),
-                Doctor = _db.Doctors.Where(d => d.Position.Trim().ToLower() == "ceo,founder").FirstOrDefault()
+                Doctor = _db.Doctors.Where(d => d.Position.Trim().ToLower() == "генеральный директор и основатель").FirstOrDefault()
             };
 
             return View(about);

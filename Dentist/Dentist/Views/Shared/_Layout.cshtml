@@ -136,15 +136,15 @@
     <link rel="stylesheet" href="~/css/owl.carousel.min.css">
     <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="~/css/magnific-popup.css">
-    <link rel="stylesheet" href="~/css/aos.css">
-    <link rel="stylesheet" href="~/css/ionicons.min.css">
+    @*<link rel="stylesheet" href="~/css/aos.css">*@
+    @*<link rel="stylesheet" href="~/css/ionicons.min.css">*@
     <link rel="stylesheet" href="~/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="~/css/jquery.timepicker.css">
     <link rel="stylesheet" href="~/css/flaticon.css">
     <link rel="stylesheet" href="~/css/font-icon.css">
 
     <link rel="stylesheet" href="~/css/icomoon.css">
-    <link rel="stylesheet" href="~/css/main.css">
+    @*<link rel="stylesheet" href="~/css/main.css">*@
     <link rel="stylesheet" href="~/css/style.css">
     <style>
         .cke_editable {
@@ -156,13 +156,9 @@
 </head>
 
 <body>
-    @await Component.InvokeAsync("Header");
+    @await Component.InvokeAsync("Header")
     @RenderBody()
-    @await Component.InvokeAsync("Footer");
-
-
-
-
+    @await Component.InvokeAsync("Footer")
     <script src="~/js/jquery.min.js"></script>
     <script src="~/js/jquery-migrate-3.0.1.min.js"></script>
     <script src="~/js/popper.min.js"></script>

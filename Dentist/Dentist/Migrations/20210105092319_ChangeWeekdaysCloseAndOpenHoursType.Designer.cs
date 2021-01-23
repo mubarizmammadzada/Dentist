@@ -4,14 +4,16 @@ using Dentist.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Dentist.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210105092319_ChangeWeekdaysCloseAndOpenHoursType")]
+    partial class ChangeWeekdaysCloseAndOpenHoursType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -112,11 +114,11 @@ namespace Dentist.Migrations
                     b.Property<string>("Twitter")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<TimeSpan>("WeekDaysOpenHour")
-                        .HasColumnType("time");
+                    b.Property<DateTime>("WeekDaysOpenHour")
+                        .HasColumnType("datetime2");
 
-                    b.Property<TimeSpan>("WeekdayCloseHour")
-                        .HasColumnType("time");
+                    b.Property<DateTime>("WeekdayCloseHour")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 

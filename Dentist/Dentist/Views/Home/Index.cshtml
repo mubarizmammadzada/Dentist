@@ -28,12 +28,14 @@
             <div class="col-md-7 wrap-about py-4 py-md-5 ftco-animate">
                 <div class="heading-section mb-5">
                     <div class="pl-md-5 ml-md-5 pt-md-5">
-                        <span class="subheading mb-2">Welcome to Dentista</span>
-                        <h2 class="mb-2" style="font-size: 32px;" @Model.WellComing.WelcomeTitle</h2>
+                        <span class="subheading mb-2">
+                            Добро пожаловать в CK ДEНT
+                        </span>
+                        <h2 class="mb-2" style="font-size: 32px;" >@Model.WellComing.WelcomeTitle</h2>
                     </div>
                 </div>
                 <div class="pl-md-5 ml-md-5 mb-5">
-                    <p>@Model.WellComing.Description</p>
+                    <p>@Html.Raw(Model.WellComing.Description)</p>
 
                     <div class="founder d-flex align-items-center mt-5">
                         <div class="img" style="background-image: url(../images/@Model.Doctor.Image);"></div>
@@ -51,9 +53,13 @@
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
             <div class="col-md-8 text-center heading-section ftco-animate">
-                <span class="subheading">Services</span>
-                <h2 class="mb-4">Our Clinic Services</h2>
-                <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+                <span class="subheading">
+                    Сервисы
+                </span>
+                <h2 class="mb-4">
+                    Услуги нашей клиники
+                </h2>
+                <p>Они живут отдельно. Рядом с ними протекает небольшая речка Дуден, снабжающая ее необходимыми регелиалами. Это райская страна</p>
             </div>
         </div>
         <div class="row">
@@ -76,10 +82,12 @@
     </div>
 </section>
 <section id="gallery" class="gallery section" style="margin-bottom:150px;padding:0px !important">
-    <div class="container-fluid">
+    <div class="container-fluid text-center">
         <div class="section-header">
-            <h2 class="wow fadeInDown animated">Gallery</h2>
-            <p class="wow fadeInDown animated">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget risus vitae massa <br> semper aliquam quis mattis quam.</p>
+            <h2 class="wow fadeInDown animated">Портфолио</h2>
+            <p class="wow fadeInDown animated">
+                Последние работы наших врачей.
+            </p>
         </div>
         <div class="row ftco-animate justify-content-center">
             <div class="col-md-12">
@@ -101,8 +109,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h3 class="mb-4">We promised to take care our patients and we delivered.</h3>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+                <h3 class="mb-4">Мы обещали позаботиться о наших пациентах, и мы сделали это.</h3>
+                <p>Рядом с ними протекает небольшая речка Дуден, снабжающая его необходимыми регелиалами. Это райская страна</p>
             </div>
         </div>
     </div>
@@ -111,9 +119,11 @@
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
             <div class="col-md-8 text-center heading-section ftco-animate">
-                <span class="subheading">Doctors</span>
-                <h2 class="mb-4">Our Qualified Doctors</h2>
-                <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+                <span class="subheading">Cтоматолог</span>
+                <h2 class="mb-4">Наш Cтоматолог</h2>
+                <p>
+                    Они живут отдельно. Рядом с ними протекает небольшая речка Дуден, снабжающая ее необходимыми регелиалами. Это райская страна
+                </p>
             </div>
         </div>
         <div class="row">
@@ -148,8 +158,8 @@
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
             <div class="col-md-8 text-center heading-section ftco-animate">
-                <span class="subheading">Testimonials</span>
-                <h2 class="mb-4">Our Patients Says About Us</h2>
+                <span class="subheading">Отзывы</span>
+                <h2 class="mb-4">Наши пациенты говорят о нас</h2>
             </div>
         </div>
         <div class="row ftco-animate justify-content-center">
@@ -182,9 +192,11 @@
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
             <div class="col-md-8 text-center heading-section ftco-animate">
-                <span class="subheading">Blog</span>
-                <h2 class="mb-4">Recent Blog</h2>
-                <p>Separated they live in. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country</p>
+                <span class="subheading">Блог</span>
+                <h2 class="mb-4">Недавние Блог</h2>
+                <p>
+                    Они живут отдельно. Рядом с ними протекает небольшая речка Дуден, снабжающая его необходимыми регелиалами. Это райская страна
+                </p>
             </div>
         </div>
         <div class="row">
@@ -192,7 +204,7 @@
             {
                 <div class="col-md-4 ftco-animate">
                     <div class="blog-entry">
-                        <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url('../images/@blog.Image');">
+                        <a href="@Url.Action("Detail","Blog",new { slug=blog.Slug})" class="block-20 d-flex align-items-end justify-content-end" style="background-image: url('../images/@blog.Image');">
                             <div class="meta-date text-center p-2">
                                 <span class="day">@blog.Date.Day</span>
                                 <span class="mos">@blog.Date.ToString("MMMM", new System.Globalization.CultureInfo("ru"))</span>
@@ -212,7 +224,7 @@
                                 }
                             </p>
                             <div class="d-flex align-items-center mt-4">
-                                <p class="mb-0"><a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id" class="btn btn-primary">Read More <span class="ion-ios-arrow-round-forward"></span></a></p>
+                                <p class="mb-0"><a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id" class="btn btn-primary">Читать больше<span class="ion-ios-arrow-round-forward"></span></a></p>
                                 <p class="ml-auto mb-0">
                                     <a href="#" class="mr-2">@blog.Author</a>
                                 </p>
@@ -225,7 +237,7 @@
         </div>
     </div>
 </section>
-
+<script src="~/js/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('.slider-banner').DrSlider({

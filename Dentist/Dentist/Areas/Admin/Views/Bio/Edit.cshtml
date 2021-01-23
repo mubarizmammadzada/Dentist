@@ -1,0 +1,50 @@
+﻿@model Bio
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Edit Bio</h4>
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label asp-for="Address" class="mt-2"></label>
+                            <input class="form-control" asp-for="Address" >
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                            <label asp-for="Email" style="display:block" class="mt-2"></label>
+                            <input class="form-control" asp-for="Email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                            <label asp-for="PhoneNumber" style="display:block" class="mt-2"></label>
+                            <input class="form-control" asp-for="PhoneNumber" />
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            <label asp-for="Facebook" style="display:block" class="mt-2"></label>
+                            <input class="form-control" asp-for="Facebook" />
+                            <span asp-validation-for="Facebook" class="text-danger"></span>
+                            <label asp-for="Twitter" style="display:block" class="mt-2"></label>
+                            <input class="form-control" asp-for="Twitter" />
+                            <span asp-validation-for="Twitter" class="text-danger"></span>
+                            <label asp-for="Instagram" style="display:block" class="mt-2"></label>
+                            <input class="form-control" asp-for="Instagram" />
+                            <span asp-validation-for="Instagram" class="text-danger"></span>
+                            <label asp-for="WeekDaysOpenHour" style="display:block" class="mt-2"></label>
+                            <input class="form-control" asp-for="WeekDaysOpenHour" type="datetime" />
+                            <span asp-validation-for="WeekDaysOpenHour" class="text-danger"></span>
+                            <label asp-for="WeekdayCloseHour" style="display:block" class="mt-2"></label>
+                            <input class="form-control" asp-for="WeekdayCloseHour" type="datetime" />
+                            <span asp-validation-for="WeekdayCloseHour" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary ml-2 mb-3">Submit</button>
+                    <a asp-action="Index" class="btn btn-dribbble  mb-3">Go Back</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+}

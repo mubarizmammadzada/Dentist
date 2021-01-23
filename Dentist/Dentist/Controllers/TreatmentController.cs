@@ -17,7 +17,6 @@ namespace Dentist.Controllers
         }
         public IActionResult Index()
         {
-            ViewBag.Salam = "Salam";
             List<Treatment> treatments = _db.Treatments.ToList();
             return View(treatments);
         }
