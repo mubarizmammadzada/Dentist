@@ -1,4 +1,4 @@
-﻿@model Bio
+﻿@model ContactVM
 @{
     ViewData["Title"] = "Index";
 }
@@ -32,28 +32,40 @@
 <section class="ftco-section ftco-no-pt ftco-no-pb contact-section">
     <div class="container">
         <div class="row d-flex align-items-stretch no-gutters">
-            <div class="col-md-6 p-4 p-md-5 order-md-last bg-light">
-                <form action="#">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 p-4 p-md-5 order-md-last bg-light">
+                <form method="post">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Ваше Имя">
+                        <input asp-for="Name" class="form-control" placeholder="Ваше Имя">
+                        <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Ваш адрес электронной почты">
+                        <input asp-for="Email" class="form-control" placeholder="Ваш адрес электронной почты">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Тема">
+                        <input asp-for="PhoneNumber" class="form-control" placeholder="Номер телефона">
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
                     </div>
                     <div class="form-group">
-                        <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Сообщение"></textarea>
+                        <input asp-for="Subject" class="form-control" placeholder="Тема">
+                        <span asp-validation-for="Subject" class="text-danger"></span>
+
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Отправить Cообщение" class="btn btn-primary py-3 px-5">
+                        <textarea asp-for="Messagge" cols="30" rows="7" class="form-control" placeholder="Сообщение"></textarea>
+                        <span asp-validation-for="Messagge" class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary py-3 px-5">Отправить Cообщение</button>
                     </div>
                 </form>
             </div>
-            <div class="mapouter">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mapouter d-flex">
                 <div class="gmap_canvas">
-                    <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Hvardiitsiv-Shyronintsiv%20St,%20%D0%B1%D1%83%D0%B4.84,%20Kharkiv,%20Kharkiv%20Oblast,%20Ukrayna,%2061000&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://fmovies2.org">fmovies</a>
+                    <iframe style="width:100%" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Hvardiitsiv-Shyronintsiv%20St,%20%D0%B1%D1%83%D0%B4.84,%20Kharkiv,%20Kharkiv%20Oblast,%20Ukrayna,%2061000&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://fmovies2.org">fmovies</a>
                     <style>
                         .mapouter {
                             position: relative;
@@ -84,18 +96,18 @@
             <div class="w-100"></div>
             <div class="col-md-4 d-flex">
                 <div class="bg-light d-flex align-self-stretch box p-4">
-                    <p><span>Адрес:</span> @Model.Address</p>
+                    <p><span>Адрес:</span> @Model.Bio.Address</p>
                 </div>
             </div>
             <div class="col-md-4 d-flex">
                 <div class="bg-light d-flex align-self-stretch box p-4">
-                    <p><span>Телефон:</span> <a href="tel://@Model.PhoneNumber">@Model.PhoneNumber</a></p>
+                    <p><span>Телефон:</span> <a href="tel:// @Model.Bio.PhoneNumber"> @Model.Bio.PhoneNumber</a></p>
                 </div>
             </div>
             <div class="col-md-4 d-flex">
                 <div class="bg-light d-flex align-self-stretch box p-4">
                     <p>
-                        <span>Эл. адрес:@Model.Email</span> <a href="@Model.Email">
+                        <span>Эл. адрес:@Model.Bio.Email</span> <a href="@Model.Bio.Email">
                         </a>
                     </p>
                 </div>
@@ -104,6 +116,8 @@
     </div>
 </section>
 @section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
 
 }

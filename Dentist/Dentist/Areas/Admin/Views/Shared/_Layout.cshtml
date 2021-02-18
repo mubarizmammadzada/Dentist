@@ -31,8 +31,8 @@
         <!-- partial:partials/_sidebar.html -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-                <a class="sidebar-brand brand-logo" href="index.html"><img src="~/admin/images/logo.svg" alt="logo" /></a>
-                <a class="sidebar-brand brand-logo-mini" href="index.html">
+                <a class="sidebar-brand brand-logo"asp-controller="Account" asp-action="Index"><img src="~/admin/images/logo.svg" alt="logo" /></a>
+                <a class="sidebar-brand brand-logo-mini" asp-controller="Account" asp-action="Index">
                     <img src="~/admin/images/logo-mini.svg"
                          alt="logo" />
                 </a>
@@ -103,6 +103,14 @@
                             <i class="mdi mdi-contacts"></i>
                         </span>
                         <span class="menu-title">Wellcoming</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" asp-controller="Message" asp-action="Index" asp-area="Admin">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-contacts"></i>
+                        </span>
+                        <span class="menu-title">Message</span>
                     </a>
                 </li>
             </ul>

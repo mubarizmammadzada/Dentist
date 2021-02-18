@@ -1,5 +1,6 @@
 ﻿using Dentist.Models;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Slugify;
 using System;
@@ -13,9 +14,11 @@ namespace Dentist.DAL
     {
         static public void Initital(IApplicationBuilder builder)
         {
+
             using (var scope = builder.ApplicationServices.CreateScope())
             {
                 var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+
                 InitialBio(db);
                 InitialBlog(db);
                 InitialDoctor(db);
@@ -27,6 +30,8 @@ namespace Dentist.DAL
             }
         }
 
+       
+
         private static void InitialWellComing(AppDbContext db)
         {
             if (!db.WellComings.Any())
@@ -34,8 +39,8 @@ namespace Dentist.DAL
                 db.WellComings.Add(new WellComing
                 {
                     Description = "Рядом с ними протекает небольшая речка Дуден, снабжающая его необходимыми регелиалами. Это райская страна, в которой жареные части предложений летят вам в рот. Даже всемогущий Пойнтинг не контролирует слепые тексты, это почти неортографическая жизнь. Однажды небольшая строчка слепого текста по имени Lorem Ipsum решила уйти в далекий Мир грамматики.",
-                    Image= "back1.png",
-                    WelcomeTitle= "Медицинская специальность по уходу за тяжелобольными госпитализированными пациентами"
+                    Image = "back1.png",
+                    WelcomeTitle = "Медицинская специальность по уходу за тяжелобольными госпитализированными пациентами"
                 });
                 db.SaveChanges();
             }

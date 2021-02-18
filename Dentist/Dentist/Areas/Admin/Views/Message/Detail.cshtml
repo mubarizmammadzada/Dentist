@@ -1,0 +1,22 @@
+﻿@model Message
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="container">
+    <div class="w-100 d-flex">
+        <h3 style="margin-left:15px;"><strong>Name:</strong>@Model.Name.</h3> <br />
+        <h3><strong>Email:</strong>@Model.Email.</h3><br />
+        <h3><strong>Subject</strong>@Model.Subject</h3><br />
+        <h3><strong>PhoneNumber</strong>@Model.PhoneNumber</h3><br />
+    </div>
+    <div>
+        <h1><strong>Message:</strong></h1>
+        <h5>@Model.Messagge</h5>
+    </div>
+
+</div>
+<div class="container">
+    <a asp-controller="Messages" asp-action="Index" class="btn btn-facebook">Back To MessageList</a>
+</div>
+

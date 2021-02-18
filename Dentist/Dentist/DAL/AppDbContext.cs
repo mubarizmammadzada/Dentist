@@ -19,6 +19,7 @@ namespace Dentist.DAL
         public DbSet<Bio> Bios { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<Portfolio> Portfolios { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
     }
 }

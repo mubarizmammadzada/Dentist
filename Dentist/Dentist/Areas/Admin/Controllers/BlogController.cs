@@ -9,7 +9,6 @@ using Dentist.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Slugify;
 
 namespace Dentist.Areas.Admin.Controllers
 {
@@ -17,7 +16,7 @@ namespace Dentist.Areas.Admin.Controllers
     [Authorize(Roles = "Admin")]
     public class BlogController : Controller
     {
-       
+
         private readonly AppDbContext _db;
         private readonly IHostingEnvironment _env;
         public BlogController(AppDbContext db, IHostingEnvironment env)
@@ -51,8 +50,9 @@ namespace Dentist.Areas.Admin.Controllers
                 return View();
             }
             blog.Image = await blog.Photo.SaveImage(_env.WebRootPath, "images");
-            SlugHelper slugHelper = new SlugHelper();
-            blog.Slug = slugHelper.GenerateSlug(blog.BlogName);
+
+            
+            blog.Slug = SlugGenerator.SlugGenerator.GenerateSlug(blog.BlogName.Trim(), "-");
             blog.Date = DateTime.UtcNow.AddHours(2);
             await _db.Blogs.AddAsync(blog);
             await _db.SaveChangesAsync();
@@ -67,7 +67,7 @@ namespace Dentist.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id,Blog blog)
+        public async Task<IActionResult> Edit(int? id, Blog blog)
         {
             if (id == null) return NotFound();
             Blog dbBlog = _db.Blogs.Find(id);
@@ -82,7 +82,7 @@ namespace Dentist.Areas.Admin.Controllers
                 }
                 if (blog.Photo.MaxLength(1600))
                 {
-                    ModelState.AddModelError("Photo","Shekilin olcusu 1600kb-dan chox ola bilmez");
+                    ModelState.AddModelError("Photo", "Shekilin olcusu 1600kb-dan chox ola bilmez");
                     return View();
                 }
                 Helpers.DeleteImg(_env.WebRootPath, "images", dbBlog.Image);
@@ -90,8 +90,7 @@ namespace Dentist.Areas.Admin.Controllers
                 dbBlog.Author = blog.Author;
                 dbBlog.BlogName = blog.BlogName;
                 dbBlog.Description = blog.Description;
-                SlugHelper slugHelper1 = new SlugHelper();
-                dbBlog.Slug = slugHelper1.GenerateSlug(dbBlog.BlogName);
+                dbBlog.Slug = SlugGenerator.SlugGenerator.GenerateSlug(blog.BlogName.Trim(), "-");
                 await _db.SaveChangesAsync();
                 return RedirectToAction("Index", "Blog");
 
@@ -99,8 +98,7 @@ namespace Dentist.Areas.Admin.Controllers
             dbBlog.Author = blog.Author;
             dbBlog.BlogName = blog.BlogName;
             dbBlog.Description = blog.Description;
-            SlugHelper slugHelper = new SlugHelper();
-            dbBlog.Slug = slugHelper.GenerateSlug(dbBlog.BlogName);
+            dbBlog.Slug = SlugGenerator.SlugGenerator.GenerateSlug(blog.BlogName.Trim(), "-");
             await _db.SaveChangesAsync();
             return RedirectToAction("Index", "Blog");
         }
