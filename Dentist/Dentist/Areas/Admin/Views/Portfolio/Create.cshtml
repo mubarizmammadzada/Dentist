@@ -1,4 +1,5 @@
-﻿@model Portfolio
+﻿@using Dentist.Areas.Admin.ViewModels
+@model ServiceVM
 @{
     ViewData["Title"] = "Create";
 }
@@ -10,10 +11,18 @@
                 <form class="forms-sample" method="post" enctype="multipart/form-data">
                     <div class="col-12">
                         <div class="form-group">
-                            <label asp-for="Photo" class="mt-2"></label>
-                            <input class="form-control" asp-for="Photo" accept="image/*">
-                            <span asp-validation-for="Photo" class="text-danger"></span>
+                            <label asp-for="Portfolio.Photo" class="mt-2"></label>
+                            <input class="form-control" asp-for="Portfolio.Photo" accept="image/*">
+                            <span asp-validation-for="Portfolio.Photo" class="text-danger"></span>
                         </div>
+                    </div>
+                    <div class="mt-3">
+                        <select class="form-control" id="selectCategory" name="services">
+                            @foreach (Treatment service in Model.Treatments)
+                            {
+                                <option value="@service.TreatmentName">@service.TreatmentName  </option>
+                            }
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary ml-2 mb-3">Submit</button>
                     <a asp-action="Index" class="btn btn-dribbble  mb-3">Go Back</a>

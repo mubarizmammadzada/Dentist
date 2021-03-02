@@ -1,0 +1,51 @@
+﻿@model Treatment
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url(../../images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-2 bread">
+                    @Model.TreatmentName
+                </h1>
+                <p class="breadcrumbs">
+                    <span class="mr-2"><a asp-controller="Home" asp-action="Index">Главная <i class="ion-ios-arrow-forward"></i></a></span>
+                    <a asp-controller="Treatment" asp-action="Index">
+                        <span>
+                            Услуги <i class="ion-ios-arrow-forward"></i>
+                        </span>
+                    </a><span>
+                        портфолио <i class="ion-ios-arrow-forward"></i>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            @foreach (Portfolio portfolio in Model.Portfolios)
+            {
+                <div class="col-md-6 col-lg-3 col-sm-12 col-12  ftco-animate">
+                    <div class="staff">
+                        <div class="img-wrap d-flex align-items-stretch">
+                            <div class="img align-self-stretch" style="background-image: url(../../images/@portfolio.Image);"></div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+        <div class="row mt-5">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <h2 class="text-center">@Model.TreatmentName</h2>
+                <p>@Model.About</p>
+            </div>
+        </div>
+    </div>
+</section>
+

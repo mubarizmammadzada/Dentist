@@ -24,7 +24,6 @@ namespace Dentist.DAL
                 InitialDoctor(db);
                 InitialPatient(db);
                 InitialPortfolio(db);
-                InitialSlider(db);
                 InitialTreatment(db);
                 InitialWellComing(db);
             }
@@ -55,33 +54,15 @@ namespace Dentist.DAL
                     About = "Даже всемогущий Пойнтинг не контролирует слепые тексты, это почти неортографический.",
                     TreatmentName = "Зубные Имплантаты",
                     Image = "kamranportfolio.png",
+                    Slug= "Зубные-Имплантаты"
 
                 });
                 db.SaveChanges();
             }
         }
 
-        private static void InitialSlider(AppDbContext db)
-        {
-            if (!db.Sliders.Any())
-            {
-                db.Sliders.Add(new Slider
-                {
-                    Image = "back1.png",
-                    SliderTitle = "Улыбка производит неизгладимое впечатление",
-                    SliderDescription = "Ваше здоровье - наш главный приоритет в доступной медицинской помощи.",
-
-                });
-                db.Sliders.Add(new Slider
-                {
-                    Image = "back2.png",
-                    SliderTitle = "Улыбка производит неизгладимое впечатление",
-                    SliderDescription = "Ваше здоровье - наш главный приоритет в доступной медицинской помощи.",
-
-                });
-                db.SaveChanges();
-            }
-        }
+  
+        
 
         private static void InitialPortfolio(AppDbContext db)
         {
@@ -89,7 +70,8 @@ namespace Dentist.DAL
             {
                 db.Portfolios.Add(new Portfolio
                 {
-                    Image = "kamranportfolio.png"
+                    Image = "kamranportfolio.png",
+                    TreatmentId=2008
                 });
                 db.SaveChanges();
             }
@@ -125,7 +107,8 @@ namespace Dentist.DAL
                     Instagram = "#",
                     Position = "ГЕНЕРАЛЬНЫЙ ДИРЕКТОР И ОСНОВАТЕЛЬ".ToLower(),
                     Twitter = "#",
-                    Profession = "Dentist"
+                    Profession = "Dentist",
+                    Slug= "Камран-Бадалов"
                 });
                 db.SaveChanges();
             }

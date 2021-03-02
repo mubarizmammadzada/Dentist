@@ -29,7 +29,6 @@ namespace Dentist.Controllers
                 Patient=_db.Patients.OrderByDescending(p=>p.Id).Take(6).ToList(),
                 Blogs=_db.Blogs.OrderByDescending(b=>b.Id).Take(3).ToList(),
                 Portfolios=_db.Portfolios.OrderByDescending(p=>p.Id).Take(15).ToList(),
-                Sliders=_db.Sliders.OrderByDescending(s=>s.Id).Take(4).ToList()
             };
             return View(homeVM);
         }

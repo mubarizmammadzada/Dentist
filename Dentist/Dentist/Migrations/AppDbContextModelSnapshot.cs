@@ -158,6 +158,27 @@ namespace Dentist.Migrations
                     b.ToTable("Blogs");
                 });
 
+            modelBuilder.Entity("Dentist.Models.Certificate", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("DoctorId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DoctorId");
+
+                    b.ToTable("Certificates");
+                });
+
             modelBuilder.Entity("Dentist.Models.Doctor", b =>
                 {
                     b.Property<int>("Id")
@@ -196,44 +217,16 @@ namespace Dentist.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Twitter")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Doctors");
-                });
-
-            modelBuilder.Entity("Dentist.Models.Message", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Messagge")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Subject")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Messages");
                 });
 
             modelBuilder.Entity("Dentist.Models.Patient", b =>
@@ -275,33 +268,59 @@ namespace Dentist.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TreatmentId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("TreatmentId");
 
                     b.ToTable("Portfolios");
                 });
 
-            modelBuilder.Entity("Dentist.Models.Slider", b =>
+            modelBuilder.Entity("Dentist.Models.Price", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("Image")
+                    b.Property<string>("PriceTitle")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SliderDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SliderTitle")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sliders");
+                    b.ToTable("Prices");
+                });
+
+            modelBuilder.Entity("Dentist.Models.PriceDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<int>("PriceDetailCost")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PriceDetaillName")
+                        .IsRequired()
+                        .HasMaxLength(400)
+                        .HasColumnType("nvarchar(400)");
+
+                    b.Property<int>("PriceId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("İsExactly")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PriceId");
+
+                    b.ToTable("PriceDetails");
                 });
 
             modelBuilder.Entity("Dentist.Models.Treatment", b =>
@@ -313,10 +332,14 @@ namespace Dentist.Migrations
 
                     b.Property<string>("About")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Slug")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -485,6 +508,39 @@ namespace Dentist.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Dentist.Models.Certificate", b =>
+                {
+                    b.HasOne("Dentist.Models.Doctor", "Doctor")
+                        .WithMany("Certificates")
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Doctor");
+                });
+
+            modelBuilder.Entity("Dentist.Models.Portfolio", b =>
+                {
+                    b.HasOne("Dentist.Models.Treatment", "Treatment")
+                        .WithMany("Portfolios")
+                        .HasForeignKey("TreatmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Treatment");
+                });
+
+            modelBuilder.Entity("Dentist.Models.PriceDetail", b =>
+                {
+                    b.HasOne("Dentist.Models.Price", "Price")
+                        .WithMany("PriceDetails")
+                        .HasForeignKey("PriceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Price");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -534,6 +590,21 @@ namespace Dentist.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Dentist.Models.Doctor", b =>
+                {
+                    b.Navigation("Certificates");
+                });
+
+            modelBuilder.Entity("Dentist.Models.Price", b =>
+                {
+                    b.Navigation("PriceDetails");
+                });
+
+            modelBuilder.Entity("Dentist.Models.Treatment", b =>
+                {
+                    b.Navigation("Portfolios");
                 });
 #pragma warning restore 612, 618
         }

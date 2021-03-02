@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Dentist.Areas.Admin.ViewModels;
 using Dentist.DAL;
 using Dentist.Extentions;
 using Dentist.Helper;
@@ -30,24 +31,31 @@ namespace Dentist.Areas.Admin.Controllers
         }
         public IActionResult Create()
         {
-            return View();
+            ServiceVM serviceVM = new ServiceVM
+            {
+                Treatments=_db.Treatments.ToList()
+            };
+            return View(serviceVM);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Portfolio portfolio)
+        public async Task<IActionResult> Create(ServiceVM serviceVM)
         {
-            if (!portfolio.Photo.IsImage())
+            if (!serviceVM.Portfolio.Photo.IsImage())
             {
                 ModelState.AddModelError("Photo", "Shekil sechin");
                 return View();
             }
-            if (portfolio.Photo.MaxLength(1600))
+            if (serviceVM.Portfolio.Photo.MaxLength(1600))
             {
                 ModelState.AddModelError("Photo", "Shekilin olchusu 1600kb-dan chox ola bilmez");
                 return View();
             }
-            portfolio.Image = await portfolio.Photo.SaveImage(_env.WebRootPath, "images");
-            await _db.Portfolios.AddAsync(portfolio);
+            serviceVM.Portfolio.Image = await serviceVM.Portfolio.Photo.SaveImage(_env.WebRootPath, "images");
+            string a = Request.Form["services"];
+            Treatment treatment = _db.Treatments.FirstOrDefault(t => t.TreatmentName.ToLower().Trim() == a.Trim().ToLower());
+            serviceVM.Portfolio.TreatmentId = treatment.Id;
+            await _db.Portfolios.AddAsync(serviceVM.Portfolio);
             await _db.SaveChangesAsync();
             return RedirectToAction("Index", "Portfolio");
         }

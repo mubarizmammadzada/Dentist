@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using Dentist.DAL;
 using Dentist.Models;
@@ -8,6 +10,7 @@ using Dentist.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.Services.DelegatedAuthorization;
+using MimeKit;
 
 namespace Dentist.Controllers
 {
@@ -20,34 +23,34 @@ namespace Dentist.Controllers
         }
         public IActionResult Index()
         {
-            //Bio bio = _db.Bios.FirstOrDefault();
+            
             ContactVM bio = new ContactVM()
             {
+
                 Bio=_db.Bios.FirstOrDefault()
+                
             };
             return View(bio);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Index")]
-        public async Task<IActionResult> SendMessage(Message message)
+        public IActionResult SendMail(ContactVM messsage)
         {
-            if (message == null)
-            {
-                ModelState.AddModelError("", "Mesaji doldurun");
-                return View();
-            }
-            Message message1 = new Message()
-            {
-                Name = message.Name,
-                Email = message.Email,
-                Subject = message.Subject,
-                Messagge = message.Messagge,
-                PhoneNumber=message.PhoneNumber
-            };
-            await _db.Messages.AddAsync(message1);
-            await _db.SaveChangesAsync();
-            return RedirectToAction("Index", "Contact");
+            MailMessage mail = new MailMessage();
+            mail.From = new MailAddress(messsage.Message.Email);
+            mail.To.Add(new MailAddress("mubucimbom@gmail.com"));
+            mail.Subject =messsage.Message.Subject+"," + $"Telefon:{messsage.Message.PhoneNumber}"+"," +$"Mail:{messsage.Message.Email}";
+            mail.Body = messsage.Message.Messsage;
+            mail.IsBodyHtml = false;
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+            smtp.Port = 587;
+            smtp.UseDefaultCredentials = true;
+            smtp.EnableSsl = true;
+            smtp.Credentials = new NetworkCredential("mubucimbom@gmail.com","mubu1905");
+            smtp.Send(mail);
+            return RedirectToAction(nameof(Index));
         }
+        
     }
 }

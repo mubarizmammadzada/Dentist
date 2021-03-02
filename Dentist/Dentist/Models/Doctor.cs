@@ -29,5 +29,8 @@ namespace Dentist.Models
         public string Instagram { get; set; }
         [NotMapped]
         public IFormFile Photo { get; set; }
+        public ICollection<Certificate> Certificates { get; set; }
+        [Required]
+        public string Slug { get; set; }
     }
 }

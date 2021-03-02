@@ -15,5 +15,8 @@ namespace Dentist.Models
         public string Image { get; set; }
         [NotMapped]
         public IFormFile Photo { get; set; }
+        public Treatment Treatment { get; set; }
+        [Required]
+        public int TreatmentId { get; set; }
     }
 }

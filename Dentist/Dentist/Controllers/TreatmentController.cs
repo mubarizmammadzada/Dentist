@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Dentist.DAL;
 using Dentist.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Dentist.Controllers
 {
@@ -17,8 +18,16 @@ namespace Dentist.Controllers
         }
         public IActionResult Index()
         {
-            List<Treatment> treatments = _db.Treatments.ToList();
+            List<Treatment> treatments = _db.Treatments.Include(t=>t.Portfolios).ToList();
             return View(treatments);
+        }
+        [Route("Treatment/{slug}")]
+        public IActionResult Detail(string slug)
+        {
+            if (slug == null) return NotFound();
+            Treatment treatment = _db.Treatments.Include(t => t.Portfolios).FirstOrDefault(t => t.Slug.Trim().ToLower() == slug.Trim().ToLower());
+            if (treatment == null) return NotFound();
+            return View(treatment);
         }
     }
 }

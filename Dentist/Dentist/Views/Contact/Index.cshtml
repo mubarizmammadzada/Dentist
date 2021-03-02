@@ -35,27 +35,27 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 p-4 p-md-5 order-md-last bg-light">
                 <form method="post">
                     <div class="form-group">
-                        <input asp-for="Name" class="form-control" placeholder="Ваше Имя">
-                        <span asp-validation-for="Name" class="text-danger"></span>
+                        <input asp-for="Message.Name" class="form-control" placeholder="Ваше Имя">
+                        <span asp-validation-for="Message.Name" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <input asp-for="Email" class="form-control" placeholder="Ваш адрес электронной почты">
-                        <span asp-validation-for="Email" class="text-danger"></span>
+                        <input asp-for="Message.Email" class="form-control" placeholder="Ваш адрес электронной почты">
+                        <span asp-validation-for="Message.Email" class="text-danger"></span>
 
                     </div>
                     <div class="form-group">
-                        <input asp-for="PhoneNumber" class="form-control" placeholder="Номер телефона">
-                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                        <input asp-for="Message.PhoneNumber" class="form-control" placeholder="Номер телефона">
+                        <span asp-validation-for="Message.PhoneNumber" class="text-danger"></span>
 
                     </div>
                     <div class="form-group">
-                        <input asp-for="Subject" class="form-control" placeholder="Тема">
-                        <span asp-validation-for="Subject" class="text-danger"></span>
+                        <input asp-for="Message.Subject" class="form-control" placeholder="Тема">
+                        <span asp-validation-for="Message.Subject" class="text-danger"></span>
 
                     </div>
                     <div class="form-group">
-                        <textarea asp-for="Messagge" cols="30" rows="7" class="form-control" placeholder="Сообщение"></textarea>
-                        <span asp-validation-for="Messagge" class="text-danger"></span>
+                        <textarea asp-for="Message.Messsage" cols="30" rows="7" class="form-control" placeholder="Сообщение"></textarea>
+                        <span asp-validation-for="Message.Messsage" class="text-danger"></span>
 
                     </div>
                     <div class="form-group">

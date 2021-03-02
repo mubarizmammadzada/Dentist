@@ -48,6 +48,7 @@ namespace Dentist.Areas.Admin.Controllers
                 return View();
             }
             doctor.Image =await doctor.Photo.SaveImage(_env.WebRootPath, "images");
+            doctor.Slug = SlugGenerator.SlugGenerator.GenerateSlug(doctor.FullName);
             await _db.Doctors.AddAsync(doctor);
             await _db.SaveChangesAsync();
             return RedirectToAction("Index", "Doctor");

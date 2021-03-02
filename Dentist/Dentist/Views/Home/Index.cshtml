@@ -3,23 +3,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-<section class="home-slider owl-carousel">
-    @foreach (Slider slider in Model.Sliders)
-    {
-        <div class="slider-item" style="background-image:url(../images/@slider.Image);" data-stellar-background-ratio="0.5">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
-                    <div class="col-md-6 text ftco-animate">
-                        <h1 class="mb-4">@slider.SliderTitle</h1>
-                        <h3 class="subheading">@slider.SliderDescription</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-    }
-</section>
 <section class="ftco-section ftco-no-pt ftco-no-pb">
     <div class="container">
         <div class="row no-gutters">
@@ -72,7 +56,15 @@
                         </div>
                         <div class="media-body p-2 mt-3">
                             <h3 class="heading">@treatment.TreatmentName</h3>
-                            <p>@treatment.About</p>
+                            @if (treatment.About.Length > 120)
+                            {
+                                <span>@treatment.About.Substring(0, 120)</span> 
+                            }
+                            else
+                            {
+                                @Html.Raw(treatment.About)
+                            }
+                            
                         </div>
                     </div>
                 </div>
@@ -105,16 +97,6 @@
         </div>
     </div>
 </section>
-<section class="ftco-section intro" style="background-image: url(../images/bg_3.jpg);" data-stellar-background-ratio="0.5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h3 class="mb-4">Мы обещали позаботиться о наших пациентах, и мы сделали это.</h3>
-                <p>Рядом с ними протекает небольшая речка Дуден, снабжающая его необходимыми регелиалами. Это райская страна</p>
-            </div>
-        </div>
-    </div>
-</section>
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
@@ -132,7 +114,7 @@
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff">
                         <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url(../images/@doctor.Image);"></div>
+                            <a href="@Url.Action("Detail","Doctor",new { slug=doctor.Slug })" class="img align-self-stretch" style="background-image: url(../images/@doctor.Image);"></a>
                         </div>
                         <div class="text pt-3 text-center">
                             <h3>DR.@doctor.FullName</h3>

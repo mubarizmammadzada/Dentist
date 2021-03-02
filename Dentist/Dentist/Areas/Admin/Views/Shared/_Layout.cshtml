@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="~/admin/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="~/admin/vendors/owl-carousel-2/owl.carousel.min.css">
     <link rel="stylesheet" href="~/admin/vendors/owl-carousel-2/owl.theme.default.min.css">
+    @RenderSection("Css", false);
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
@@ -58,19 +59,28 @@
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" asp-controller="Blog" asp-action="Index" asp-area="Admin">
+                    <a class="nav-link" asp-controller="Price" asp-action="Index" asp-area="Admin">
                         <span class="menu-icon">
                             <i class="mdi mdi-playlist-play"></i>
                         </span>
-                        <span class="menu-title">Blog</span>
+                        <span class="menu-title">Service Price</span>
                     </a>
                 </li>
+               
                 <li class="nav-item menu-items">
-                    <a class="nav-link" asp-controller="Doctor" asp-action="Index" asp-area="Admin">
+                    <a class="nav-link" asp-controller="PriceDetail" asp-action="Index" asp-area="Admin">
                         <span class="menu-icon">
                             <i class="mdi mdi-table-large"></i>
                         </span>
-                        <span class="menu-title">Doctor</span>
+                        <span class="menu-title">Service Price Detail</span>
+                    </a>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" asp-controller="Certificate" asp-action="Index" asp-area="Admin">
+                        <span class="menu-icon">
+                            <i class="mdi mdi-table-large"></i>
+                        </span>
+                        <span class="menu-title">Certificate</span>
                     </a>
                 </li>
                 <li class="nav-item menu-items">
@@ -90,7 +100,7 @@
                     </a>
                 </li>
                 <li class="nav-item menu-items">
-                    <a class="nav-link" asp-controller="Slider" asp-action="Index" asp-area="Admin">
+                    <a class="nav-link" asp-controller="Treatment" asp-action="Index" asp-area="Admin">
                         <span class="menu-icon">
                             <i class="mdi mdi-contacts"></i>
                         </span>
@@ -105,14 +115,7 @@
                         <span class="menu-title">Wellcoming</span>
                     </a>
                 </li>
-                <li class="nav-item menu-items">
-                    <a class="nav-link" asp-controller="Message" asp-action="Index" asp-area="Admin">
-                        <span class="menu-icon">
-                            <i class="mdi mdi-contacts"></i>
-                        </span>
-                        <span class="menu-title">Message</span>
-                    </a>
-                </li>
+               
             </ul>
         </nav>
         <div class="container-fluid page-body-wrapper">

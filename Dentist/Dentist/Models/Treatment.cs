@@ -15,10 +15,14 @@ namespace Dentist.Models
         public string Image { get; set; }
         [Required,StringLength(50)]
         public string TreatmentName { get; set; }
-        [Required,StringLength(200)]
+        [Required,StringLength(1000)]
         public string About { get; set; }
         [NotMapped]
         public IFormFile Photo { get; set; }
+        public List<Portfolio> Portfolios { get; set; }
+        [Required]
+        public string Slug { get; set; }
+
 
     }
 }

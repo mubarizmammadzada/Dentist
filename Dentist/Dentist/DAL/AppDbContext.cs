@@ -17,9 +17,10 @@ namespace Dentist.DAL
         public DbSet<Treatment> Treatments { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<Bio> Bios { get; set; }
-        public DbSet<Slider> Sliders { get; set; }
         public DbSet<Portfolio> Portfolios { get; set; }
-        public DbSet<Message> Messages { get; set; }
+        public DbSet<Certificate> Certificates { get; set; }
+        public DbSet<Price> Prices { get; set; }
+        public DbSet<PriceDetail> PriceDetails { get; set; }
 
     }
 }

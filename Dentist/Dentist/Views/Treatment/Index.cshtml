@@ -3,7 +3,7 @@
     ViewData["Title"] = "Index";
 }
 
-<section class="hero-wrap hero-wrap-2" style="background-image: url('../images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+<section class="hero-wrap hero-wrap-2" style="background-image: url(../images/bg_1.jpg);" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -23,13 +23,33 @@
             {
                 <div class="col-md-4 d-flex services align-self-stretch p-4 ftco-animate">
                     <div class="media block-6 d-block w-100">
-                        <div class="img w-100" style="background-image: url(../images/@treatment.Image);"></div>
+                        <a href="@Url.Action("Detail","Treatment",new { slug=treatment.Slug})">
+                            <div class="img w-100 rounded-circle" style=" background-image: url(../images/@treatment.Image);"></div>
+                        </a>
+
                         <div class="media-body p-2 mt-3">
-                            <h3 class="heading">@treatment.TreatmentName</h3>
-                            <p>@Html.Raw(treatment.About)</p>
+                            <a href="@Url.Action("Detail","Treatment",new { slug=treatment.Slug})">
+                                <h3 style="        text-align: center" class="heading">@treatment.TreatmentName</h3>
+                            </a>
+
+                            @if (treatment.About.Length >= 120)
+                            {
+
+                                <p>@Html.Raw(treatment.About).ToString().Substring(0, 120) ...</p>
+
+
+                            }
+                            else
+                            {
+                                <p style="text-align:center">@Html.Raw(treatment.About)</p>
+                            }
+
+
                         </div>
                     </div>
                 </div>
+
+
             }
 
         </div>
