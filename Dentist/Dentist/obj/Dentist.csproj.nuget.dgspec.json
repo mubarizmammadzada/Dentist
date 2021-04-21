@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Admin\\Desktop\\DentistBackend\\Dentist\\Dentist\\Dentist.csproj": {}
+    "C:\\Users\\Admin\\Desktop\\Dentist\\Dentist\\Dentist\\Dentist.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Admin\\Desktop\\DentistBackend\\Dentist\\Dentist\\Dentist.csproj": {
+    "C:\\Users\\Admin\\Desktop\\Dentist\\Dentist\\Dentist\\Dentist.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\DentistBackend\\Dentist\\Dentist\\Dentist.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Desktop\\Dentist\\Dentist\\Dentist\\Dentist.csproj",
         "projectName": "Dentist",
-        "projectPath": "C:\\Users\\Admin\\Desktop\\DentistBackend\\Dentist\\Dentist\\Dentist.csproj",
+        "projectPath": "C:\\Users\\Admin\\Desktop\\Dentist\\Dentist\\Dentist\\Dentist.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Admin\\Desktop\\DentistBackend\\Dentist\\Dentist\\obj\\",
+        "outputPath": "C:\\Users\\Admin\\Desktop\\Dentist\\Dentist\\Dentist\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -65,7 +65,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.3, )"
+              "version": "[5.0.0, )"
             },
             "Microsoft.VisualStudio.Services.Client": {
               "target": "Package",
@@ -102,7 +102,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.112\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.114\\RuntimeIdentifierGraph.json"
         }
       }
     }

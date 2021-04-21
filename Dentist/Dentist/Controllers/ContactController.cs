@@ -39,15 +39,15 @@ namespace Dentist.Controllers
         {
             MailMessage mail = new MailMessage();
             mail.From = new MailAddress(messsage.Message.Email);
-            mail.To.Add(new MailAddress("mubucimbom@gmail.com"));
-            mail.Subject =messsage.Message.Subject+"," + $"Telefon:{messsage.Message.PhoneNumber}"+"," +$"Mail:{messsage.Message.Email}";
+            mail.To.Add(new MailAddress("ckdentkamran@gmail.com"));
+            mail.Subject = messsage.Message.Subject + "," + $"Telefon:{messsage.Message.PhoneNumber}" + "," + $"Mail:{messsage.Message.Email}";
             mail.Body = messsage.Message.Messsage;
             mail.IsBodyHtml = false;
             SmtpClient smtp = new SmtpClient("smtp.gmail.com");
             smtp.Port = 587;
             smtp.UseDefaultCredentials = true;
             smtp.EnableSsl = true;
-            smtp.Credentials = new NetworkCredential("mubucimbom@gmail.com","mubu1905");
+            smtp.Credentials = new NetworkCredential("ckdentmailsender@gmail.com", "mubu1905");
             smtp.Send(mail);
             return RedirectToAction(nameof(Index));
         }
