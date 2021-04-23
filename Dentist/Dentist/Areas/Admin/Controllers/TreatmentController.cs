@@ -84,12 +84,14 @@ namespace Dentist.Areas.Admin.Controllers
                 dbTreatment.Image = await treatment.Photo.SaveImage(_env.WebRootPath, "images");
                 dbTreatment.About = treatment.About;
                 dbTreatment.TreatmentName = treatment.TreatmentName;
+                dbTreatment.Slug = SlugGenerator.SlugGenerator.GenerateSlug(dbTreatment.TreatmentName);
                 await _db.SaveChangesAsync();
                 return RedirectToAction("Index", "Treatment");
 
             }
             dbTreatment.About = treatment.About;
             dbTreatment.TreatmentName = treatment.TreatmentName;
+            dbTreatment.Slug = SlugGenerator.SlugGenerator.GenerateSlug(dbTreatment.TreatmentName);
             await _db.SaveChangesAsync();
             return RedirectToAction("Index", "Treatment");
 

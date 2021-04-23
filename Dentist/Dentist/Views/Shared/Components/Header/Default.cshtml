@@ -29,7 +29,7 @@
                             Bремя работы
                         </span>
                     </p>
-                    <p class="time"><span>Понедельник - Суббота:</span> <span>@Model.WeekDaysOpenHour.Hours am - @Model.WeekdayCloseHour.Hours pm</span> Воскресенье: По записи</p>
+                    <p class="time"><span>Понедельник - Суббота:</span> <span>@Model.WeekDaysOpenHour.ToString(@"hh\:mm")- @Model.WeekdayCloseHour.ToString(@"hh\:mm")</span> Воскресенье: По записи</p>
                 </div>
             </div>
         </div>

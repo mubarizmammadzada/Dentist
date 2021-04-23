@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Dentist.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("admin")]
     [Authorize(Roles ="Admin")]
     public class PriceDetailController : Controller
     {

@@ -9,7 +9,7 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
                 <h1 class="mb-2 bread">
-                    Наши процедуры &amp; Сервисы
+                    Наши Услуги
                 </h1>
                 <p class="breadcrumbs"><span class="mr-2"><a asp-controller="Home" asp-action="Index">Главная <i class="ion-ios-arrow-forward"></i></a></span> <span>Сервисы <i class="ion-ios-arrow-forward"></i></span></p>
             </div>
@@ -32,18 +32,7 @@
                                 <h3 style="        text-align: center" class="heading">@treatment.TreatmentName</h3>
                             </a>
 
-                            @if (treatment.About.Length >= 120)
-                            {
-
-                                <p>@Html.Raw(treatment.About).ToString().Substring(0, 120) ...</p>
-
-
-                            }
-                            else
-                            {
-                                <p style="text-align:center">@Html.Raw(treatment.About)</p>
-                            }
-
+                           
 
                         </div>
                     </div>

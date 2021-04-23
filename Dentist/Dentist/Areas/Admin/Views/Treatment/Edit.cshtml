@@ -2,6 +2,11 @@
 @{
     ViewData["Title"] = "Edit";
 }
+<style>
+    .ck-editor__editable {
+        background-color: black !important;
+    }
+</style>
 
 <div class="col-md-6 grid-margin stretch-card">
     <div class="card">
@@ -19,11 +24,11 @@
                     <input class="form-control" asp-for="TreatmentName">
                     <span asp-validation-for="TreatmentName" style="display:block" class="text-danger"></span>
                     <label asp-for="About" class="mt-3"></label>
-                    <textarea asp-for="About"  id="editor"> </textarea>
+                    <textarea asp-for="About" id="editor"> </textarea>
 
 
 
-                   
+
 
                     <span asp-validation-for="About" style="display:block" class="text-danger"> </span>
 
@@ -47,6 +52,6 @@
             });
 
     </script>
-   
+
 }
 

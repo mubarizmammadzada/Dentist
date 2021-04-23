@@ -26,8 +26,8 @@
                     <h2 class="ftco-heading-2">Ссылки</h2>
                     <ul class="list-unstyled">
                         <li><a asp-controller="Home" asp-action="Index"><span class="ion-ios-arrow-round-forward mr-2"></span>Главная</a></li>
-                        <li><a asp-controller="About" asp-action="Index"><span class="ion-ios-arrow-round-forward mr-2"></span>O нас</a></li>
-                        <li><a asp-controller="Doctor" asp-action="Index"><span class="ion-ios-arrow-round-forward mr-2"></span>наши врачи</a></li>
+                        <li><a asp-controller="About" asp-action="Index"><span class="ion-ios-arrow-round-forward mr-2"></span> O нас</a></li>
+                        <li><a asp-controller="Doctor" asp-action="Index"><span class="ion-ios-arrow-round-forward mr-2"></span> наши врачи</a></li>
                         <li><a asp-controller="Treatment" asp-action="Index"><span class="ion-ios-arrow-round-forward mr-2"></span>Услуги</a></li>
                         <li><a asp-controller="Price" asp-action="Index"><span class="ion-ios-arrow-round-forward mr-2"></span>Цены</a></li>
                         <li><a asp-controller="Contact" asp-action="Index"><span class="ion-ios-arrow-round-forward mr-2"></span>Kонтакт</a></li>
@@ -35,7 +35,25 @@
                 </div>
                 
             </div>
-            
+            @*<div class="col-md">
+                <div class="ftco-footer-widget mb-5">
+                    <h2 class="ftco-heading-2">Недавний блог</h2>
+                    @foreach (Blog blog in Model.Blogs)
+                    {
+                        <div class="block-21 mb-4 d-flex">
+                            <a href="@Url.Action("Detail","Blog",new {slug=blog.Slug })" class="blog-img mr-4" style="background-image: url(../images/@blog.Image);"></a>
+                            <div class="text">
+                                <h3 class="heading"><a href="@Url.Action("Detail","Blog",new {slug=blog.Slug })">@blog.BlogName</a></h3>
+                                <div class="meta">
+                                    <div><span class="icon-calendar"></span> @blog.Date</div>
+                                    <div><span class="icon-person"></span> @blog.Author</div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>*@
         </div>
     </div>
 </footer>

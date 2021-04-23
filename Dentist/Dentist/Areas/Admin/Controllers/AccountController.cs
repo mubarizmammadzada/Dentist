@@ -12,7 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Dentist.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("admin")]
+    
     public class AccountController : Controller
     {
         private readonly AppDbContext _db;
@@ -25,6 +26,7 @@ namespace Dentist.Areas.Admin.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
+        [Authorize(Roles = "Admin")]
         public  IActionResult Index()
         {
             List<AppUser> users =  _userManager.Users.ToList();
@@ -37,6 +39,7 @@ namespace Dentist.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(RegisterVM registerVM)
         {
             if (!ModelState.IsValid) return View(registerVM);
@@ -59,7 +62,7 @@ namespace Dentist.Areas.Admin.Controllers
             await _signInManager.SignInAsync(newUser, true);
             return RedirectToAction("Index", "Home");
         }
-        
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();

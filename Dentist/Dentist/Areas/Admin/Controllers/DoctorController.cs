@@ -89,6 +89,11 @@ namespace Dentist.Areas.Admin.Controllers
                 dbDoctor.Position = doctor.Position;
                 dbDoctor.Profession = doctor.Profession;
                 dbDoctor.Twitter = doctor.Twitter;
+                if (doctor.Id == 2)
+                {
+                    dbDoctor.Position = "Хирург-имплантолог, директор клиники";
+                }
+                dbDoctor.Slug = SlugGenerator.SlugGenerator.GenerateSlug(dbDoctor.FullName);
                 await _db.SaveChangesAsync();
                 return RedirectToAction("Index", "Doctor");
 
@@ -101,6 +106,11 @@ namespace Dentist.Areas.Admin.Controllers
             dbDoctor.Position = doctor.Position;
             dbDoctor.Profession = doctor.Profession;
             dbDoctor.Twitter = doctor.Twitter;
+            dbDoctor.Slug = SlugGenerator.SlugGenerator.GenerateSlug(dbDoctor.FullName);
+            if (doctor.Id == 2)
+            {
+                dbDoctor.Position = "Хирург-имплантолог, директор клиники";
+            }
             await _db.SaveChangesAsync();
             return RedirectToAction("Index", "Doctor");
         }

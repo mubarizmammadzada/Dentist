@@ -61,7 +61,7 @@ namespace Dentist
             {
                 options.UseSqlServer(Configuration.GetConnectionString("BloggingDatabase"));
             });
-
+            services.AddAuthorization();
 
         }
 
@@ -80,19 +80,17 @@ namespace Dentist
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
 
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-           
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(   
                  name: "Admin",
-                 pattern: "{area:exists}/{controller=Doctor}/{action=Index}");
+                 pattern: "{area:exists}/{controller=Account}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

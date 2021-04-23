@@ -19,7 +19,7 @@ namespace Dentist.Migrations
             modelBuilder
                 .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.1");
+                .HasAnnotation("ProductVersion", "3.1.14");
 
             modelBuilder.Entity("Dentist.Models.AppUser", b =>
                 {

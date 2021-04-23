@@ -23,7 +23,7 @@ namespace Dentist.Controllers
             HomeVM homeVM = new HomeVM
             {
                 WellComing = _db.WellComings.FirstOrDefault(),
-                Doctor=_db.Doctors.Where(d=>d.Position== "генеральный директор и основатель").FirstOrDefault(),
+                Doctor=_db.Doctors.Where(d=>d.Position== "Хирург-имплантолог, директор клиники").FirstOrDefault(),
                 Treatments=_db.Treatments.Take(8).ToList(),
                 Doctors=_db.Doctors.OrderBy(d=>d.Id).Take(4).ToList(),
                 Patient=_db.Patients.OrderByDescending(p=>p.Id).Take(6).ToList(),

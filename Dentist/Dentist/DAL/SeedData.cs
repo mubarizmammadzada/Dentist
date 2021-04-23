@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
-using Slugify;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,10 +25,35 @@ namespace Dentist.DAL
                 InitialPortfolio(db);
                 InitialTreatment(db);
                 InitialWellComing(db);
+                İnitialPrice(db);
+                InitialPriceDetail(db);
             }
         }
 
-       
+        private static void InitialPriceDetail(AppDbContext db)
+        {
+            if (!db.PriceDetails.Any())
+            {
+                db.PriceDetails.Add(new PriceDetail
+                {
+                    PriceDetaillName= "Развернутая консультация(осмотр, постановка диагноза, составление плана и сметы лечения)",
+                    PriceDetailCost=100,
+                    İsExactly=true,
+                    PriceId=1
+                });
+            }
+        }
+
+        private static void İnitialPrice(AppDbContext db)
+        {
+            if (!db.Prices.Any())
+            {
+                db.Prices.Add(new Price
+                {
+                    PriceTitle= "Обследование пациента"
+                });
+            }
+        }
 
         private static void InitialWellComing(AppDbContext db)
         {
@@ -61,8 +85,8 @@ namespace Dentist.DAL
             }
         }
 
-  
-        
+
+
 
         private static void InitialPortfolio(AppDbContext db)
         {
@@ -71,7 +95,7 @@ namespace Dentist.DAL
                 db.Portfolios.Add(new Portfolio
                 {
                     Image = "kamranportfolio.png",
-                    TreatmentId=2008
+                    TreatmentId = 1
                 });
                 db.SaveChanges();
             }
@@ -105,7 +129,7 @@ namespace Dentist.DAL
                     Facebook = "#",
                     Image = "kamran.png",
                     Instagram = "#",
-                    Position = "ГЕНЕРАЛЬНЫЙ ДИРЕКТОР И ОСНОВАТЕЛЬ".ToLower(),
+                    Position = "Хирург-имплантолог, директор клиники".ToLower(),
                     Twitter = "#",
                     Profession = "Dentist",
                     Slug= "Камран-Бадалов"

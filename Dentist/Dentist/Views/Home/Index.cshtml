@@ -24,7 +24,7 @@
                     <div class="founder d-flex align-items-center mt-5">
                         <div class="img" style="background-image: url(../images/@Model.Doctor.Image);"></div>
                         <div class="text pl-3">
-                            <h3 class="mb-0">Dr. @Model.Doctor.FullName</h3>
+                            <h3 class="mb-0"> @Model.Doctor.FullName</h3>
                             <span class="position">@Model.Doctor.Position</span>
                         </div>
                     </div>
@@ -37,33 +37,24 @@
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
             <div class="col-md-8 text-center heading-section ftco-animate">
-                <span class="subheading">
-                    Сервисы
-                </span>
+                
                 <h2 class="mb-4">
                     Услуги нашей клиники
                 </h2>
-                <p>Они живут отдельно. Рядом с ними протекает небольшая речка Дуден, снабжающая ее необходимыми регелиалами. Это райская страна</p>
+                
             </div>
         </div>
         <div class="row">
             @foreach (Treatment treatment in Model.Treatments)
             {
-                <div class="col-md-3 d-flex services align-self-stretch p-4 ftco-animate">
-                    <div class="media block-6 d-block text-center">
-                        <div class="icon d-flex justify-content-center align-items-center">
-                            <span class="flaticon-drilling"></span>
-                        </div>
+                <div class="col-md-4  d-flex services align-self-stretch p-4 ftco-animate">
+                    <div class="media block-6 d-block text-center w-100">
+                        <a href="@Url.Action("Detail","Treatment",new { slug=treatment.Slug})">
+                            <div class="img w-100 rounded-circle" style="background-image:url(../images/@treatment.Image)"></div>
+                        </a>
                         <div class="media-body p-2 mt-3">
-                            <h3 class="heading">@treatment.TreatmentName</h3>
-                            @if (treatment.About.Length > 120)
-                            {
-                                <span>@treatment.About.Substring(0, 120)</span> 
-                            }
-                            else
-                            {
-                                @Html.Raw(treatment.About)
-                            }
+                            <h3 class="heading text-center">@treatment.TreatmentName</h3>
+                           
                             
                         </div>
                     </div>
@@ -101,11 +92,8 @@
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
             <div class="col-md-8 text-center heading-section ftco-animate">
-                <span class="subheading">Cтоматолог</span>
-                <h2 class="mb-4">Наш Cтоматолог</h2>
-                <p>
-                    Они живут отдельно. Рядом с ними протекает небольшая речка Дуден, снабжающая ее необходимыми регелиалами. Это райская страна
-                </p>
+                <h2 class="mb-4">НАШИ СПЕЦИАЛИСТЫ</h2>
+               
             </div>
         </div>
         <div class="row">
@@ -117,16 +105,11 @@
                             <a href="@Url.Action("Detail","Doctor",new { slug=doctor.Slug })" class="img align-self-stretch" style="background-image: url(../images/@doctor.Image);"></a>
                         </div>
                         <div class="text pt-3 text-center">
-                            <h3>DR.@doctor.FullName</h3>
+                            <h3>@doctor.FullName</h3>
                             <span class="position mb-2"></span>
                             <div class="faded">
                                 <p>@doctor.About</p>
-                                <ul class="ftco-social text-center">
-                                    <li class="ftco-animate"><a href="@doctor.Twitter" class="d-flex align-items-center justify-content-center"><span class="icon-twitter"></span></a></li>
-                                    <li class="ftco-animate"><a href="@doctor.Facebook" class="d-flex align-items-center justify-content-center"><span class="icon-facebook"></span></a></li>
-                                    <li class="ftco-animate"><a href="@doctor.Gmail" class="d-flex align-items-center justify-content-center"><span class="icon-google-plus"></span></a></li>
-                                    <li class="ftco-animate"><a href="@doctor.Instagram" class="d-flex align-items-center justify-content-center"><span class="icon-instagram"></span></a></li>
-                                </ul>
+                               
                             </div>
                         </div>
                     </div>
@@ -170,7 +153,7 @@
         </div>
     </div>
 </section>
-<section class="ftco-section bg-light">
+@*<section class="ftco-section bg-light">
     <div class="container">
         <div class="row justify-content-center mb-5 pb-2">
             <div class="col-md-8 text-center heading-section ftco-animate">
@@ -218,7 +201,7 @@
             }
         </div>
     </div>
-</section>
+</section>*@
 <script src="~/js/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {

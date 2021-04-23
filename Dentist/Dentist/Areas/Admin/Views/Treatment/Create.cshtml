@@ -2,7 +2,11 @@
 @{
     ViewData["Title"] = "Create";
 }
-
+    <style>
+        .ck-editor__editable {
+            background-color: black !important;
+        }
+    </style>
 <div class="row">
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
@@ -18,7 +22,7 @@
                             <input class="form-control" asp-for="TreatmentName" />
                             <span asp-validation-for="TreatmentName" class="text-danger"></span>
                             <label asp-for="About" style="display:block" class="mt-2"></label>
-                            <input class="form-control" asp-for="About" />
+                            <textarea class="form-control" id="editor" asp-for="About" ></textarea>
                             <span asp-validation-for="About" class="text-danger"></span>
                         </div>
                     </div>
@@ -34,5 +38,14 @@
 @section Scripts{
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/20.0.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+
+    </script>
 }
 
